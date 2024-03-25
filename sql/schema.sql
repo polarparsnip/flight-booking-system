@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS Bookings;
-DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Passengers;
 DROP TABLE IF EXISTS Seats;
 DROP TABLE IF EXISTS Flights;
 
-CREATE TABLE Users (
-    userId VARCHAR(15) PRIMARY KEY,
+CREATE TABLE Passengers (
+    passengerId VARCHAR(15) PRIMARY KEY,
     name VARCHAR(30),
     kennitala VARCHAR(10)
 );
@@ -21,8 +21,8 @@ CREATE TABLE Flights (
 
 CREATE TABLE Bookings (
     bookingId VARCHAR(15),
-    flightId VARCHAR(30) REFERENCES Flights(flightId),
-    userId VARCHAR(30) REFERENCES User(userId),
+    flightId VARCHAR(30) REFERENCES Flights(flightId) ON DELETE CASCADE,
+    userId VARCHAR(30) REFERENCES User(userId) ON DELETE CASCADE,
     seatNr VARCHAR(3) REFERENCES Seats(seatNumber),
     extraLuggage INT DEFAULT 0,
     insured Boolean DEFAULT FALSE,
@@ -30,7 +30,7 @@ CREATE TABLE Bookings (
 );
 
 CREATE TABLE Seats (
-    flightId VARCHAR(30) REFERENCES Flight(flightId),
+    flightId VARCHAR(30) REFERENCES Flight(flightId) ON DELETE CASCADE,
     seatNumber VARCHAR(3),
     reserved BOOLEAN,
     PRIMARY KEY (flightId, seatNumber)
