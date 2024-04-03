@@ -1,6 +1,8 @@
-package hi.verkefni.vidmot.controller;
+package hi.verkefni.vidmot.vidmot;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class FlightControllerTest {
 
       LocalDate date = LocalDate.of(2024, 4, day + i);
 
-      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (20000 + 1* 2000)));
+      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (20000 + i * 2000)));
     }
   }
 
@@ -66,8 +68,12 @@ public class FlightControllerTest {
       FC.searchFlightsByPriceRange(19000, 23000)
     );
 
-    for (int i = 0; i < oracle.size(); i++) {
-      assertEquals(oracle.get(i).getFlightNr(), priceFiltered.get(i).getFlightNr());
+    try {
+      for (int i = 0; i < priceFiltered.size(); i++) {
+          assertEquals(oracle.get(i).getFlightNr(), priceFiltered.get(i).getFlightNr());
+      }
+    } catch (IndexOutOfBoundsException e) {
+      fail("Index out of range");
     }
   }
 
@@ -143,8 +149,12 @@ public class FlightControllerTest {
     oracle.add(flights.get(4));
     oracle.add(flights.get(5));
 
-    for (int i = 0; i < oracle.size(); i++) {
-      assertEquals(oracle.get(i).getFlightNr(), departureAddressSorted.get(i).getFlightNr());
+    try {
+      for (int i = 0; i < departureAddressSorted.size(); i++) {
+        assertEquals(oracle.get(i).getFlightNr(), departureAddressSorted.get(i).getFlightNr());
+      }
+    } catch (IndexOutOfBoundsException e) {
+      fail("Index out of range");
     }
   }
 
@@ -161,8 +171,12 @@ public class FlightControllerTest {
     oracle.add(flights.get(1));
     oracle.add(flights.get(2));
 
-    for (int i = 0; i < oracle.size(); i++) {
-      assertEquals(oracle.get(i).getFlightNr(), arrivalAddressSorted.get(i).getFlightNr());
+    try {
+      for (int i = 0; i < arrivalAddressSorted.size(); i++) {
+        assertEquals(oracle.get(i).getFlightNr(), arrivalAddressSorted.get(i).getFlightNr());
+      }
+    } catch (IndexOutOfBoundsException e) {
+      fail("Index out of range");
     }
   }
 

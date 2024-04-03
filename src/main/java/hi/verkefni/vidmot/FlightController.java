@@ -24,7 +24,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       flight = FSL.searchFlightByFlightNr(flightNr);
     } catch(Exception e) {
-      System.out.println("Error searching for flight using flight number: " + e);
+      System.err.println("Error searching for flight using flight number: " + e);
     }
     
     return flight;
@@ -38,7 +38,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       found = FSL.searchFlightsByPriceRange(priceLower, priceUpper);
     } catch(Exception e) {
-      System.out.println("Error searching for flight using price range: " + e);
+      System.err.println("Error searching for flight using price range: " + e);
     }
     
     return found;
@@ -52,7 +52,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       found = FSL.searchFlightsByDepartureDate(date);
     } catch(Exception e) {
-      System.out.println("Error searching for flight using departure date: " + e);
+      System.err.println("Error searching for flight using departure date: " + e);
     }
     
     return found;
@@ -66,7 +66,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       found = FSL.searchFlightsByArrivalDate(date);
     } catch(Exception e) {
-      System.out.println("Error searching for flight using arrival date: " + e);
+      System.err.println("Error searching for flight using arrival date: " + e);
     }
     
     return found;
@@ -80,7 +80,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       found = FSL.searchFlightsByDepArr(depAddress, arrAddress);
     } catch(Exception e) {
-      System.out.println("Error searching for flights: " + e);
+      System.err.println("Error searching for flights: " + e);
     }
 
     return found;
@@ -94,7 +94,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       found = FSL.searchFlightsByDepArr(depAddress, arrAddress, depTime);
     } catch(Exception e) {
-      System.out.println("Error searching for flights: " + e);
+      System.err.println("Error searching for flights: " + e);
     }
 
     return found;
@@ -108,7 +108,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       priceSorted = FSL.getSortedByPrice();
     } catch(Exception e) {
-      System.out.println("Error getting sorted by price: " + e);
+      System.err.println("Error getting sorted by price: " + e);
     }
 
     return priceSorted;
@@ -122,7 +122,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       departureTimeSorted = FSL.getSortedByDepartureTime();
     } catch(Exception e) {
-      System.out.println("Error getting sorted by departure time: " + e);
+      System.err.println("Error getting sorted by departure time: " + e);
     }
 
     return departureTimeSorted;
@@ -136,7 +136,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       arrivalTimeSorted = FSL.getSortedByArrivalTime();
     } catch(Exception e) {
-      System.out.println("Error getting sorted by arrival time: " + e);
+      System.err.println("Error getting sorted by arrival time: " + e);
     }
 
     return arrivalTimeSorted;
@@ -150,7 +150,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       departureAddressSorted = FSL.getSortedByDepartureAddress();
     } catch(Exception e) {
-      System.out.println("Error getting sorted by departure: " + e);
+      System.err.println("Error getting sorted by departure: " + e);
     }
 
     return departureAddressSorted;
@@ -164,7 +164,7 @@ public class FlightController implements FlightControllerInterface {
     try {
       arrivalAddressSorted = FSL.getSortedByArrivalAddress();
     } catch(Exception e) {
-      System.out.println("Error getting sorted by arrival: " + e);
+      System.err.println("Error getting sorted by arrival: " + e);
     }
 
     return arrivalAddressSorted;

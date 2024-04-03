@@ -33,7 +33,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
       }
 
       LocalDate date = LocalDate.of(2024, 4, day + i);
-      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (20000 + 1* 2000)));
+      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (20000 + i * 2000)));
     }
 
   }

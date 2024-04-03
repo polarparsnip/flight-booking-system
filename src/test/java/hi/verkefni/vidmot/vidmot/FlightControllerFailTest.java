@@ -1,4 +1,4 @@
-package hi.verkefni.vidmot.controller;
+package hi.verkefni.vidmot.vidmot;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
