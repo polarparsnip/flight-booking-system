@@ -53,28 +53,19 @@ public class BookingController implements BookingControllerInterface {
   }
 
 
-  public void deleteBooking(Booking booking) {
-    try {
-      BSL.deleteBooking(booking);
-    } catch (Exception e) {
-      System.err.println("Error in deleting booking: " + e);
-    }
-  }
+  public Booking getBookingById(String bookingId) {
 
-
-  public List<Booking> getAllBookings() {
-
-    List<Booking> allBookings = new ArrayList<>();
+    Booking idBooking = null;
 
     try {
-      allBookings = BSL.getAllBookings();
+      idBooking = BSL.getBookingById(bookingId);
     } catch (Exception e) {
-      System.err.println("Error in getting all bookings: " + e);
+      System.err.println("Error in getting booking using booking id: " + e);
     }
 
-    return allBookings;
+    return idBooking;
   }
-
+  
 
   public List<Booking> getBookingsByKennitala(String kennitala) {
 
@@ -101,6 +92,29 @@ public class BookingController implements BookingControllerInterface {
     }
 
     return idBookings;
+  }
+
+
+  public List<Booking> getAllBookings() {
+
+    List<Booking> allBookings = new ArrayList<>();
+
+    try {
+      allBookings = BSL.getAllBookings();
+    } catch (Exception e) {
+      System.err.println("Error in getting all bookings: " + e);
+    }
+
+    return allBookings;
+  }
+
+
+  public void deleteBooking(Booking booking) {
+    try {
+      BSL.deleteBooking(booking);
+    } catch (Exception e) {
+      System.err.println("Error in deleting booking: " + e);
+    }
   }
 
 }

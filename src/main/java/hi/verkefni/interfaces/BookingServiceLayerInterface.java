@@ -25,19 +25,11 @@ public interface BookingServiceLayerInterface {
 
 
   /**
-   * Deletes a pre-existing booking entry from the database
+   * Gets the booking entry with the specified booking id from the database
    * 
-   * @param booking The {@link Booking} to be deleted from the database
+   * @return {@link Booking} entry with the queried booking id
    */
-  public void deleteBooking(Booking booking) throws SQLException;
-
-
-  /**
-   * Gets all bookings from the database sorted by booking date
-   * 
-   * @return List of all {@link Booking} in the database sorted by booking date
-   */
-  public List<Booking> getAllBookings();
+  public Booking getBookingById(String bookingId);
 
 
   /**
@@ -59,4 +51,20 @@ public interface BookingServiceLayerInterface {
    */
   public List<Booking> getBookingByPurchaserId(String id);
 
+
+  /**
+   * Gets all bookings from the database sorted by booking date
+   * 
+   * @return List of all {@link Booking} in the database sorted by booking date
+   */
+  public List<Booking> getAllBookings();
+
+
+  /**
+   * Deletes a pre-existing booking entry from the database
+   * 
+   * @param booking The {@link Booking} to be deleted from the database
+   */
+  public void deleteBooking(Booking booking) throws SQLException;
+  
 }

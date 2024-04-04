@@ -121,13 +121,34 @@ public class BookingControllerTest {
 
 
   @Test
+  public void getBookingById() {
+    List<Passenger> testpassengerList = new ArrayList<>();
+    testpassengerList.add(testPassenger);
+    List<Seat> testSeatList = new ArrayList<>();
+    testSeatList.add(testFlight.getSeats().get(0));
+    
+    Booking idTestBooking = BC.createBooking(
+      testPassenger, 
+      testFlight, 
+      testpassengerList, 
+      testSeatList, 
+      false, 
+      false
+    );
+
+    Booking idBooking = BC.getBookingById(idTestBooking.getBookingId());
+    assertEquals(idTestBooking, idBooking);
+  }
+
+
+  @Test
   public void getBookingByKennitala() {
     List<Passenger> testpassengerList = new ArrayList<>();
     testpassengerList.add(testPassenger);
     List<Seat> testSeatList = new ArrayList<>();
     testSeatList.add(testFlight.getSeats().get(0));
     
-    BC.createBooking(
+    Booking ktTestBooking = BC.createBooking(
       testPassenger, 
       testFlight, 
       testpassengerList, 
@@ -137,7 +158,7 @@ public class BookingControllerTest {
     );
 
     List<Booking> ktBookings = BC.getBookingsByKennitala(testPassenger.getKennitala());
-    assertEquals(oracleBooking, ktBookings.get(0));
+    assertEquals(ktTestBooking, ktBookings.get(0));
   }
 
 
@@ -148,7 +169,7 @@ public class BookingControllerTest {
     List<Seat> testSeatList = new ArrayList<>();
     testSeatList.add(testFlight.getSeats().get(0));
     
-    BC.createBooking(
+    Booking pidTestBooking = BC.createBooking(
       testPassenger, 
       testFlight, 
       testpassengerList, 
@@ -158,7 +179,7 @@ public class BookingControllerTest {
     );
 
     List<Booking> idBookings = BC.getBookingsByPurchaserId(testPassenger.getId());
-    assertEquals(oracleBooking, idBookings.get(0));
+    assertEquals(pidTestBooking, idBookings.get(0));
   }
 
 

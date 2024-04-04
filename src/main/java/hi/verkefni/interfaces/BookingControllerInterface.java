@@ -51,19 +51,11 @@ public interface BookingControllerInterface {
 
 
   /**
-   * Deletes a pre-existing {@link Booking} entry
+   * Gets the {@link Booking} entry with the specified booking id
    * 
-   * @param booking The {@link Booking} to be deleted
+   * @return {@link Booking} entry with the queried booking id
    */
-  public void deleteBooking(Booking booking);
-
-
-  /**
-   * Gets all {@link Booking} entries
-   * 
-   * @return List of all {@link Booking} entries in the system
-   */
-  public List<Booking> getAllBookings();
+  public Booking getBookingById(String bookingId);
 
 
   /**
@@ -82,5 +74,21 @@ public interface BookingControllerInterface {
    * @return List of all {@link Booking} objects of the {@link Passenger} with the specified passenger id
    */
   public List<Booking> getBookingsByPurchaserId(String id);
+
+
+  /**
+   * Gets all {@link Booking} entries
+   * 
+   * @return List of all {@link Booking} entries in the system
+   */
+  public List<Booking> getAllBookings();
+
+
+  /**
+   * Deletes a pre-existing {@link Booking} entry
+   * 
+   * @param booking The {@link Booking} to be deleted
+   */
+  public void deleteBooking(Booking booking);
 
 }

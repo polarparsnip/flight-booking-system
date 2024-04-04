@@ -54,23 +54,21 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
 
   /**
-   * Mock method that gets all saved {@link Booking} entries in the system
+   * Mock method that gets the booking entry with the specified booking id from the system
    * 
-   * @return List of all {@link Booking} entries saved in the system sorted by booking date
+   * @return {@link Booking} entry with the queried booking id
    */
-  public List<Booking> getAllBookings() {
+  public Booking getBookingById(String bookingId) {
 
-    List<Booking> sortedBookings = bookings;
+    Booking idBooking = null;
 
-    if (sortedBookings.size() > 1) {
-      sortedBookings.sort(new Comparator<Booking>() {
-        public int compare(Booking Booking1, Booking Booking2) {
-          return Booking1.getBookingDate().compareTo(Booking2.getBookingDate());
-        }
-      });
+    for (Booking b : bookings) {
+      if (b.getBookingId().equals(bookingId)) {
+        idBooking = b;
+      }
     }
 
-    return sortedBookings;
+    return idBooking;
   }
 
 
@@ -125,6 +123,27 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
     });
 
     return idFilteredBookings;
+  }
+
+
+  /**
+   * Mock method that gets all saved {@link Booking} entries in the system
+   * 
+   * @return List of all {@link Booking} entries saved in the system sorted by booking date
+   */
+  public List<Booking> getAllBookings() {
+
+    List<Booking> sortedBookings = bookings;
+
+    if (sortedBookings.size() > 1) {
+      sortedBookings.sort(new Comparator<Booking>() {
+        public int compare(Booking Booking1, Booking Booking2) {
+          return Booking1.getBookingDate().compareTo(Booking2.getBookingDate());
+        }
+      });
+    }
+
+    return sortedBookings;
   }
 
 }

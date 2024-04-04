@@ -37,6 +37,11 @@ public class BookingServiceLayerFail implements BookingServiceLayerInterface {
   }
 
 
+  public Booking getBookingById(String bookingId) {
+    throw new RuntimeException("No database connection");
+  }
+
+
   public List<Booking> getBookingByKennitala(String kennitala) {
     throw new RuntimeException("No database connection");
   }

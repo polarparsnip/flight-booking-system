@@ -120,6 +120,27 @@ public class BookingControllerFailTest {
 
 
   @Test
+  public void getBookingById() {
+    List<Passenger> testpassengerList = new ArrayList<>();
+    testpassengerList.add(testPassenger);
+    List<Seat> testSeatList = new ArrayList<>();
+    testSeatList.add(testFlight.getSeats().get(0));
+    
+    Booking idTestBooking = BC.createBooking(
+      testPassenger, 
+      testFlight, 
+      testpassengerList, 
+      testSeatList, 
+      false, 
+      false
+    );
+
+    Booking idBooking = BC.getBookingById(idTestBooking.getBookingId());
+    assertNull(idBooking);
+  }
+  
+
+  @Test
   public void getBookingByKennitala() {
     List<Passenger> testpassengerList = new ArrayList<>();
     testpassengerList.add(testPassenger);
