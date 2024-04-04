@@ -19,9 +19,9 @@ public class BookingController implements BookingControllerInterface {
   }
 
 
-  public Booking createBooking(Passenger purchaser, Flight flight, List<Passenger> passengers, List<Seat> seats, Boolean extraLuggage, Boolean insured) {
+  public Booking createBooking(Passenger purchaser, Flight flight, List<Passenger> passengers, List<Seat> seats, Boolean insured) {
 
-    Booking booking = new Booking(purchaser, flight, passengers, seats, extraLuggage, insured);
+    Booking booking = new Booking(purchaser, flight, passengers, seats, insured);
 
     try {
       BSL.createBooking(booking);

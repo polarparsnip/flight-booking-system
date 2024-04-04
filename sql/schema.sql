@@ -24,7 +24,6 @@ CREATE TABLE Bookings (
     bookingId VARCHAR(15),
     flightNr VARCHAR(30) REFERENCES Flights(flightNr) ON DELETE CASCADE,
     bookingDate DATE,
-    extraLuggage INT DEFAULT 0,
     insured Boolean DEFAULT FALSE
 );
 

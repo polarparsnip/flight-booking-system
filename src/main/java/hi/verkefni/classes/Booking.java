@@ -12,7 +12,6 @@ public class Booking {
   private final Passenger purchaser;
   private final Flight flight;
   private final String bookingId;
-  private Boolean extraLuggage;
   private Boolean insured;
   private LocalDate bookingDate;
   private Map<String, Seat> bookedSeats;
@@ -24,7 +23,6 @@ public class Booking {
    * @param flight The {@link Flight} this booking is for
    * @param passengers The list of {@link Passenger} this booking is for
    * @param seats The list of {@link Seat} to be reserved for all the {@link Passenger} of this booking
-   * @param extraLuggage Boolean specifying whether this booking has extra luggage privileges
    * @param insured Boolean specifying whether this flight booking is insured
    */
   public Booking(
@@ -32,13 +30,11 @@ public class Booking {
     Flight flight, 
     List<Passenger> passengers, 
     List<Seat> seats, 
-    Boolean extraLuggage, 
     Boolean insured
   ) {
 
     this.purchaser = purchaser;
     this.flight = flight;
-    this.extraLuggage = extraLuggage;
     this.insured = insured;
     bookingDate = LocalDate.now();
 
@@ -139,26 +135,6 @@ public class Booking {
 
 
   /**
-   * Returns whether this booking has baught extra luggage 
-   * 
-   * @return Boolean specifying whether this booking has extra luggage privileges
-   */
-  public Boolean hasExtraLuggage() {
-    return extraLuggage;
-  }
-
-
-  /**
-   * Updates the extra luggage status of this booking
-   * 
-   * @param insured Boolean specifying the new extra luggage status of this booking
-   */
-  public void updateBookingExtraLuggage(Boolean extraLuggage) {
-    this.extraLuggage = extraLuggage;
-  }
-
-
-  /**
    * Updates the insurance status of this booking
    * 
    * @param insured Boolean specifying the new insurance status of this booking
@@ -215,6 +191,27 @@ public class Booking {
     Booking b = (Booking) o;
 
     return bookingId.equals(b.bookingId);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    
+    sb.append("Bókunar Auðkenni: ").append(bookingId).append("\n");
+    sb.append("Kaupandi: ").append(purchaser.getName()).append("\n");
+    sb.append("Flugnúmer: ").append(flight.getFlightNr()).append("\n");
+    sb.append("Dagsetning bókunar: ").append(bookingDate).append("\n");
+    sb.append("Fjöldi farþega í bókun: ").append(bookedSeats.size()).append("\n");
+
+    String insuredStatusString = insured ? "Já" : "nei";
+    sb.append("Flugtrygging: ").append(insuredStatusString).append("\n");
+
+    for (Map.Entry<String, Seat> entry : bookedSeats.entrySet()) {
+      sb.append("Farþegar í bókun: ").append(entry.getKey()).append(", Seat: ").append(entry.getValue()).append("\n");
+    }
+
+    return sb.toString();
   }
 
 }

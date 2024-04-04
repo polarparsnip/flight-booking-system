@@ -59,4 +59,11 @@ public class Seat {
     return reserved;
   }
 
+
+  @Override
+  public String toString() {
+    String reservationStatusString = reserved ? "Já" : "nei";
+    return "Sætisnúmer: " + seatNr + ", Flugnúmer: " + flightNr + ", Frátekið: " + reservationStatusString ;
+  }
+
 }

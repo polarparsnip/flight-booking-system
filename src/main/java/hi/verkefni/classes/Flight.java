@@ -257,4 +257,20 @@ public class Flight {
     return flightNr.equals(f.flightNr);
   }
 
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("Flugnúmer: ").append(flightNr).append("\n");
+    sb.append("Brottfarastaður: ").append(departureAddress).append("\n");
+    sb.append("Brottfaratími: ").append(departureTime).append("\n");
+    sb.append("Áfangastaður: ").append(arrivalAddress).append("\n");
+    sb.append("Komutími: ").append(arrivalTime).append("\n");
+    sb.append("Verð: ").append(price).append("\n");
+    sb.append("Laus sæti: ").append(seatsAvailable).append("\n");
+
+    return sb.toString();
+  }
+
 }

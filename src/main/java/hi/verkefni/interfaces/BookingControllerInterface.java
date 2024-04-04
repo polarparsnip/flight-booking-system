@@ -16,7 +16,6 @@ public interface BookingControllerInterface {
    * @param flight The {@link Flight} being booked
    * @param passengers The list of {@link Passenger} in this {@link Booking}
    * @param seats The list of {@link Seat} being booked in the {@link Flight}
-   * @param extraLuggage Boolean value for whether the {@link Booking} includes extra luggage
    * @param insured Boolean value for whether the {@link Booking} is insured
    * @return {@link Booking} object of the {@link Booking} that was just created
    */
@@ -25,7 +24,6 @@ public interface BookingControllerInterface {
     Flight flight, 
     List<Passenger> passengers, 
     List<Seat> seats, 
-    Boolean extraLuggage, 
     Boolean insured
   );
 

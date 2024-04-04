@@ -48,4 +48,10 @@ public class Passenger {
     return this.kennitala;
   }
 
+
+  @Override
+  public String toString() {
+      return "Auðkenni: " + passengerId + ", Nafn: " + name + ", Kennitala: " + kennitala;
+  }
+
 }
