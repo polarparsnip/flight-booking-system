@@ -36,7 +36,7 @@ public class BookingController implements BookingControllerInterface {
   public void addPassengerToBooking(Booking booking, Passenger passenger, Seat seat) {
     try {
       booking.addPassengerToBooking(passenger, seat);
-      BSL.addPassengerToBooking(booking, seat);
+      BSL.updateBooking(booking);
     } catch (Exception e) {
       System.err.println("Error in adding passenger to booking: " + e);
     }
@@ -45,8 +45,8 @@ public class BookingController implements BookingControllerInterface {
 
   public void removePassengerFromBooking(Booking booking, Passenger passenger) {
     try {
-      Seat seat = booking.removePassengerFromBooking(passenger);
-      BSL.removePassengerFromBooking(booking, passenger, seat);
+      booking.removePassengerFromBooking(passenger);
+      BSL.updateBooking(booking);
     } catch (Exception e) {
       System.err.println("Error in removing passenger from booking: " + e);
     }

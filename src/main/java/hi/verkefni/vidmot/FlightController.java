@@ -87,12 +87,12 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
-  public List<Flight> searchFlightsByDepArr(String depAddress, String arrAddress, LocalDate depTime) {
+  public List<Flight> searchFlightsByDepArr(String depAddress, String arrAddress, LocalDate depDate) {
     
     List<Flight> found = new ArrayList<>();;
 
     try {
-      found = FSL.searchFlightsByDepArr(depAddress, arrAddress, depTime);
+      found = FSL.searchFlightsByDepArr(depAddress, arrAddress, depDate);
     } catch(Exception e) {
       System.err.println("Error searching for flights: " + e);
     }

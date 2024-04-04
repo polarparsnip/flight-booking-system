@@ -41,6 +41,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that searches flights based on their flight number
+   * 
    * @param flightNr flight number of the queried flight
    * @return the flight with the specified flight number
    */
@@ -58,6 +59,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that searches flights based on a specified price range
+   * 
    * @param priceLower lower bounds for price range
    * @param priceUpper upper bounds for price range
    * @return list of flights within the specified price range
@@ -82,8 +84,9 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
   }
 
 
-    /**
+  /**
    * Mock method that searches flights based on departure date
+   * 
    * @param date departure date of flight
    * @return list of flights departing  on the specified date
    */
@@ -103,6 +106,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that searches flights based on arrival date
+   * 
    * @param date arrival date of flight
    * @return list of flights arriving on the specified date
    */
@@ -122,6 +126,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that searches flights based on departure address, arrival address
+   * 
    * @param departureAddress departure address of flight
    * @param arrivalAddress arrival address of flight
    * @return list of flights fitting the search criteria
@@ -145,6 +150,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that searches flights based on departure address, arrival address, and departure time
+   * 
    * @param departureAddress departure address of flight
    * @param arrivalAddress arrival address of flight
    * @param departureTime departure time of flight
@@ -170,6 +176,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that gets flights sorted by price in ascending order
+   * 
    * @return list of flights sorted by price
    */
   public ArrayList<Flight> getSortedByPrice() {
@@ -188,6 +195,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that gets flights sorted by departure time in ascending order
+   * 
    * @return list of flights sorted by departure time
    */
   public ArrayList<Flight> getSortedByDepartureTime() {
@@ -206,6 +214,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that gets flights sorted by arrival time in ascending order
+   * 
    * @return list of flights sorted by arrival time
    */
   public ArrayList<Flight> getSortedByArrivalTime() {
@@ -224,6 +233,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that gets flights sorted by departure address in alphabetical order
+   * 
    * @return list of flights sorted by departure address
    */
   public ArrayList<Flight> getSortedByDepartureAddress() {
@@ -242,6 +252,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
   /**
    * Mock method that gets flights sorted by arrival address in alphabetical order
+   * 
    * @return list of flights sorted by arrival address
    */
   public ArrayList<Flight> getSortedByArrivalAddress() {

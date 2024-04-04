@@ -22,12 +22,7 @@ public class BookingServiceLayerFail implements BookingServiceLayerInterface {
   }
 
 
-  public void addPassengerToBooking(Booking booking, Seat seat) {
-    throw new RuntimeException("No database connection");
-  }
-
-
-  public void removePassengerFromBooking(Booking booking, Passenger passenger, Seat seat) {
+  public void updateBooking(Booking booking) {
     throw new RuntimeException("No database connection");
   }
 
