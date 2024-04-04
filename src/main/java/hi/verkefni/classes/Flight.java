@@ -74,6 +74,18 @@ public class Flight {
   }
 
 
+  public Seat getSeatBySeatNr(String seatNr) {
+
+    for (Seat s : seats) {
+      if (s.getSeatNr().equals(seatNr)) {
+        return s;
+      }
+    }
+
+    return null;
+  }
+
+
   public void reserveSeat(String seatNr) {
     for (int i = 0;i < seats.size();i++) {
       if (seats.get(i).getSeatNr().equals(seatNr) && !seats.get(i).getReservationStatus()) {

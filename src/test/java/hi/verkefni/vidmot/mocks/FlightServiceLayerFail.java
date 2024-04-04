@@ -7,7 +7,7 @@ import hi.verkefni.interfaces.FlightServiceLayerInterface;
 
 public class FlightServiceLayerFail implements FlightServiceLayerInterface {
 
-    /**
+  /**
    * Mock flight service layer that imitates having no database connection
    * All methods throw a connection issue error
    */

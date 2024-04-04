@@ -3,10 +3,10 @@ INSERT INTO Passengers (
   name,
   kennitala
 ) VALUES 
-    ('012345678912345', 'Randver', '1212001234');
+    ('TH-0203040506', 'Tryggvi Hjálmarsson', '020290-5555');
 
 INSERT INTO Flights (
-    flightId,
+    flightNr,
     departureAddress,
     arrivalAddress,
     departureTime,
@@ -23,14 +23,21 @@ INSERT INTO Flights (
 
 INSERT INTO Bookings (
     bookingId,
-    flightId,
-    userId,
-    seatNr
+    flightNr,
+    purchaserId,
+    bookingDate
 ) VALUES 
-    ('F-001-123456789', 'F-001', '012345678912345', 'A1');
+    ('BKNGF-001-TH-0203040506-2024-04-5', 'F-001', 'TH-0203040506', '2024-04-5');
+
+INSERT INTO BookedSeats (
+    bookingId,
+    bookingPassengerId,
+    bookedSeatNumber
+) VALUES 
+    ('BKNGF-001-TH-0203040506-2024-04-5', 'TH-0203040506', 'A1');
 
 INSERT INTO Seats (
-    flightId,
+    flightNr,
     seatNumber,
     reserved
 ) VALUES 
