@@ -78,7 +78,6 @@ public class BookingControllerTest {
       testFlight, 
       testpassengerList, 
       testSeatList, 
-      false, 
       false
     );
   }
@@ -96,7 +95,6 @@ public class BookingControllerTest {
       testFlight, 
       testpassengerList, 
       testSeatList, 
-      false, 
       false
     );
 
@@ -132,7 +130,6 @@ public class BookingControllerTest {
       testFlight, 
       testpassengerList, 
       testSeatList, 
-      false, 
       false
     );
 
@@ -153,7 +150,6 @@ public class BookingControllerTest {
       testFlight, 
       testpassengerList, 
       testSeatList, 
-      false, 
       false
     );
 
@@ -174,7 +170,6 @@ public class BookingControllerTest {
       testFlight, 
       testpassengerList, 
       testSeatList, 
-      false, 
       false
     );
 
@@ -195,7 +190,6 @@ public class BookingControllerTest {
       testFlight, 
       testpassengerList, 
       testSeatList, 
-      false, 
       false
     );
 
