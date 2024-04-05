@@ -18,7 +18,7 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
   private int day = 4;
 
   /**
-   * Constructor for the mock flight service layer
+   * Constructor for the mock flight service layer.
    */
   public FlightServiceLayerMock() {
 
@@ -40,10 +40,10 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that searches flights based on their flight number
+   * Mock method that searches flights based on their flight number.
    * 
-   * @param flightNr flight number of the queried flight
-   * @return the flight with the specified flight number
+   * @param flightNr flight number of the queried flight.
+   * @return the flight with the specified flight number.
    */
   public Flight searchFlightByFlightNr(String flightNr) {
 
@@ -58,11 +58,11 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that searches flights based on a specified price range
+   * Mock method that searches flights based on a specified price range.
    * 
-   * @param priceLower lower bounds for price range
-   * @param priceUpper upper bounds for price range
-   * @return list of flights within the specified price range
+   * @param priceLower lower bounds for price range.
+   * @param priceUpper upper bounds for price range.
+   * @return list of flights within the specified price range.
    */
   public ArrayList<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) {
 
@@ -85,10 +85,10 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that searches flights based on departure date
+   * Mock method that searches flights based on departure date.
    * 
-   * @param date departure date of flight
-   * @return list of flights departing  on the specified date
+   * @param date departure date of flight.
+   * @return list of flights departing  on the specified date.
    */
   public ArrayList<Flight> searchFlightsByDepartureDate(LocalDate date) {
 
@@ -105,10 +105,10 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that searches flights based on arrival date
+   * Mock method that searches flights based on arrival date.
    * 
-   * @param date arrival date of flight
-   * @return list of flights arriving on the specified date
+   * @param date arrival date of flight.
+   * @return list of flights arriving on the specified date.
    */
   public ArrayList<Flight> searchFlightsByArrivalDate(LocalDate date) {
 
@@ -125,11 +125,11 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that searches flights based on departure address, arrival address
+   * Mock method that searches flights based on departure address, arrival address.
    * 
-   * @param departureAddress departure address of flight
-   * @param arrivalAddress arrival address of flight
-   * @return list of flights fitting the search criteria
+   * @param departureAddress departure address of flight.
+   * @param arrivalAddress arrival address of flight.
+   * @return list of flights fitting the search criteria.
    */
   public ArrayList<Flight> searchFlightsByDepArr(String departureAddress, String arrivalAddress) {
 
@@ -149,12 +149,12 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that searches flights based on departure address, arrival address, and departure time
+   * Mock method that searches flights based on departure address, arrival address, and departure time.
    * 
-   * @param departureAddress departure address of flight
-   * @param arrivalAddress arrival address of flight
-   * @param departureTime departure time of flight
-   * @return list of flights fitting the search criteria
+   * @param departureAddress departure address of flight.
+   * @param arrivalAddress arrival address of flight.
+   * @param departureTime departure time of flight.
+   * @return list of flights fitting the search criteria.
    */
   public ArrayList<Flight> searchFlightsByDepArr(String departureAddress, String arrivalAddress, LocalDate departureTime) {
 
@@ -175,9 +175,9 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that gets flights sorted by price in ascending order
+   * Mock method that gets flights sorted by price in ascending order.
    * 
-   * @return list of flights sorted by price
+   * @return list of flights sorted by price.
    */
   public ArrayList<Flight> getSortedByPrice() {
 
@@ -194,9 +194,9 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that gets flights sorted by departure time in ascending order
+   * Mock method that gets flights sorted by departure time in ascending order.
    * 
-   * @return list of flights sorted by departure time
+   * @return list of flights sorted by departure time.
    */
   public ArrayList<Flight> getSortedByDepartureTime() {
 
@@ -213,9 +213,9 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that gets flights sorted by arrival time in ascending order
+   * Mock method that gets flights sorted by arrival time in ascending order.
    * 
-   * @return list of flights sorted by arrival time
+   * @return list of flights sorted by arrival time.
    */
   public ArrayList<Flight> getSortedByArrivalTime() {
 
@@ -232,9 +232,9 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that gets flights sorted by departure address in alphabetical order
+   * Mock method that gets flights sorted by departure address in alphabetical order.
    * 
-   * @return list of flights sorted by departure address
+   * @return list of flights sorted by departure address.
    */
   public ArrayList<Flight> getSortedByDepartureAddress() {
 
@@ -251,9 +251,9 @@ public class FlightServiceLayerMock implements FlightServiceLayerInterface {
 
 
   /**
-   * Mock method that gets flights sorted by arrival address in alphabetical order
+   * Mock method that gets flights sorted by arrival address in alphabetical order.
    * 
-   * @return list of flights sorted by arrival address
+   * @return list of flights sorted by arrival address.
    */
   public ArrayList<Flight> getSortedByArrivalAddress() {
 

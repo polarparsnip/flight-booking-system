@@ -1,5 +1,10 @@
 package hi.verkefni.classes;
 
+
+/**
+ * The Passenger class represents a passenger registered in the system.
+ * It stores information such as the passenger's identification number, name, and kennitala.
+ */
 public class Passenger {
   private final String passengerId;
   private final String name;

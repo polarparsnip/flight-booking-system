@@ -4,6 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * The Flight class represents a single flight registered in the system.
+ * It stores information such as the flight number, seats on the flight, 
+ * departure addresses and dates, arrival addresses and dates, as well as the price for the flight.
+ */
 public class Flight {
 
   private String flightNr;

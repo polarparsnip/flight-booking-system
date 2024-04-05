@@ -15,16 +15,16 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
   
 
   /**
-   * Constructor for the mock booking service layer
+   * Constructor for the mock booking service layer.
    */
   public BookingServiceLayerMock() {
     bookings = new ArrayList<>();
   }
 
   /**
-   * Mock method that saves the specified {@link Booking} in the system
+   * Mock method that saves the specified {@link Booking} in the system.
    * 
-   * @param booking The {@link Booking} object to be saved
+   * @param booking The {@link Booking} object to be saved.
    */
   public void createBooking(Booking booking) {
     bookings.add(booking);
@@ -32,11 +32,11 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
 
   /**
-   * Mock method that updates the specified {@link Booking} in the system
+   * Mock method that updates the specified {@link Booking} in the system.
    * Since {@link Booking} the object was already modified in the controller, 
-   * this method does not do anything here in the mock service layer
+   * this method does not do anything here in the mock service layer.
    * 
-   * @param booking The {@link Booking} object to be updated
+   * @param booking The {@link Booking} object to be updated.
    */
   public void updateBooking(Booking booking) {
     return;
@@ -44,9 +44,9 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
 
   /**
-   * Mock method that deletes the specified {@link Booking} from the system
+   * Mock method that deletes the specified {@link Booking} from the system.
    * 
-   * @param booking The {@link Booking} object to be updated
+   * @param booking The {@link Booking} object to be updated.
    */
   public void deleteBooking(Booking booking) {
     bookings.remove(booking);
@@ -54,9 +54,9 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
 
   /**
-   * Mock method that gets the booking entry with the specified booking id from the system
+   * Mock method that gets the booking entry with the specified booking id from the system.
    * 
-   * @return {@link Booking} entry with the queried booking id
+   * @return {@link Booking} entry with the queried booking id.
    */
   public Booking getBookingById(String bookingId) {
 
@@ -74,10 +74,10 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
   /**
    * Mock method that gets all {@link Booking} entries in the system booked by 
-   * the {@link Passenger} with the specified kennitala
+   * the {@link Passenger} with the specified kennitala.
    * 
-   * @param kennitala The kennitala of the {@link Passenger} for the bookings being queried
-   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified kennitala
+   * @param kennitala The kennitala of the {@link Passenger} for the bookings being queried.
+   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified kennitala.
    */
   public List<Booking> getBookingByKennitala(String kennitala) {
 
@@ -101,10 +101,10 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
   /**
    * Mock method that gets all {@link Booking} entries in the system booked by 
-   * the {@link Passenger} with the specified passenger id
+   * the {@link Passenger} with the specified passenger id.
    * 
-   * @param id The passenger id of the {@link Passenger} whose bookings are being queried
-   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified passenger id
+   * @param id The passenger id of the {@link Passenger} whose bookings are being queried.
+   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified passenger id.
    */
   public List<Booking> getBookingByPurchaserId(String id) {
 
@@ -127,9 +127,9 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
 
   /**
-   * Mock method that gets all saved {@link Booking} entries in the system
+   * Mock method that gets all saved {@link Booking} entries in the system.
    * 
-   * @return List of all {@link Booking} entries saved in the system sorted by booking date
+   * @return List of all {@link Booking} entries saved in the system sorted by booking date.
    */
   public List<Booking> getAllBookings() {
 

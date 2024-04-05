@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import hi.verkefni.classes.Flight;
 import hi.verkefni.interfaces.FlightServiceLayerInterface;
 
+
+/**
+ * Mock flight service layer that imitates having no database connection.
+ * All methods throw a connection issue error.
+ */
 public class FlightServiceLayerFail implements FlightServiceLayerInterface {
 
-  /**
-   * Mock flight service layer that imitates having no database connection
-   * All methods throw a connection issue error
-   */
+
   public FlightServiceLayerFail() {}
 
 

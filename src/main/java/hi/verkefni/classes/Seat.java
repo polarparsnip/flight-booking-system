@@ -1,5 +1,10 @@
 package hi.verkefni.classes;
 
+
+/**
+ * The Seat class represents a single seat on a flight in the system.
+ * It stores information such as the seat number, flight number, and reservation status.
+ */
 public class Seat {
   
   private final String seatNr;
