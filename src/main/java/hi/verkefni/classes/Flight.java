@@ -142,6 +142,21 @@ public class Flight {
 
 
   /**
+   * Unreserves the seat on this flight with the specified seat number
+   * 
+   * @param seatNr The seat number of the seat being unreserved on this flight
+   */
+  public void unreserveSeat(String seatNr) {
+    for (int i = 0;i < seats.size();i++) {
+      if (seats.get(i).getSeatNr().equals(seatNr) && seats.get(i).getReservationStatus()) {
+        seats.get(i).updateReservation(false);
+        break;
+      }
+    }
+  }
+
+
+  /**
    * Gets the departure time of this flight
    * 
    * @return The departure time of this flight

@@ -43,8 +43,12 @@ public class Booking {
     bookedSeats = new HashMap<>();
 
     for (int i = 0; i < passengers.size(); i++) {
-      seats.get(i).updateReservation(true);
-      bookedSeats.put(passengers.get(i).getId(), seats.get(i));
+      Seat seat = seats.get(i);
+      
+      if(flight.getSeats().contains(seat) && !seat.getReservationStatus()) {
+        seats.get(i).updateReservation(true);
+        bookedSeats.put(passengers.get(i).getId(), seats.get(i));        
+      }
     }
 
   }
@@ -87,8 +91,10 @@ public class Booking {
    * @param passenger The {@link Passenger} to be added to this booking
    */
   public void addPassengerToBooking(Passenger passenger, Seat seat) {
-    seat.updateReservation(true);
-    bookedSeats.put(passenger.getId(), seat);
+    if (flight.getSeats().contains(seat) && !seat.getReservationStatus()) {
+      seat.updateReservation(true);
+      bookedSeats.put(passenger.getId(), seat);
+    }
   }
 
 
@@ -99,8 +105,10 @@ public class Booking {
    * @param passenger The {@link Passenger} to be removed from this booking
    */
   public void removePassengerFromBooking(Passenger passenger) {
-    bookedSeats.get(passenger.getId()).updateReservation(false);
-    bookedSeats.remove(passenger.getId());
+    if (bookedSeats.containsKey(passenger.getId())) {
+      bookedSeats.get(passenger.getId()).updateReservation(false);
+      bookedSeats.remove(passenger.getId());
+    }
   }
   
 
@@ -177,6 +185,20 @@ public class Booking {
   }
 
 
+  /**
+   * Gets the seat number of a specific passenger in the booking using passenger id
+   * 
+   * @return The seat number of the passenger with the specified passenger id
+   */
+  public String getSeatNrForPassenger(String passengerId) {
+    if (bookedSeats.containsKey(passengerId)) {
+      return bookedSeats.get(passengerId).getSeatNr();
+    }
+
+    return null;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     
@@ -208,7 +230,7 @@ public class Booking {
     sb.append("Flugtrygging: ").append(insuredStatusString).append("\n");
 
     for (Map.Entry<String, Seat> entry : bookedSeats.entrySet()) {
-      sb.append("Farþegar í bókun: ").append(entry.getKey()).append(", Seat: ").append(entry.getValue()).append("\n");
+      sb.append("Farþegar í bókun: ").append(entry.getKey()).append(", Seat: ").append(entry.getValue().getSeatNr()).append("\n");
     }
 
     return sb.toString();
