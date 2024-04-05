@@ -46,4 +46,4 @@ INSERT INTO Seats (
     ('F-002', 'A1', false), ('F-002', 'A2', false), ('F-002', 'B1', false), ('F-002', 'B2', false), ('F-002', 'C1', false), ('F-002', 'C2', false), ('F-002', 'D1', false), ('F-002', 'D2', false),
     ('F-003', 'A1', false), ('F-003', 'A2', false), ('F-003', 'B1', false), ('F-003', 'B2', false), ('F-003', 'C1', false), ('F-003', 'C2', false), ('F-003', 'D1', false), ('F-003', 'D2', false),
     ('F-004', 'A1', false), ('F-004', 'A2', false), ('F-004', 'B1', false), ('F-004', 'B2', false), ('F-004', 'C1', false), ('F-004', 'C2', false), ('F-004', 'D1', false), ('F-004', 'D2', false),
-    ('F-005', 'A1', false), ('F-005', 'A2', false), ('F-005', 'B1', false), ('F-005', 'B2', false), ('F-005', 'C1', false), ('F-005', 'C2', false), ('F-005', 'D1', false), ('F-005', 'D2', false),;
+    ('F-005', 'A1', false), ('F-005', 'A2', false), ('F-005', 'B1', false), ('F-005', 'B2', false), ('F-005', 'C1', false), ('F-005', 'C2', false), ('F-005', 'D1', false), ('F-005', 'D2', false);

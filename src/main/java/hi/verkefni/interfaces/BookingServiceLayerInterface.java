@@ -30,7 +30,7 @@ public interface BookingServiceLayerInterface {
    * 
    * @return {@link Booking} object with the queried booking id
    */
-  public Booking getBookingById(String bookingId);
+  public Booking getBookingById(String bookingId) throws SQLException;
 
 
   /**
@@ -40,7 +40,7 @@ public interface BookingServiceLayerInterface {
    * @param kennitala The kennitala being queried
    * @return List of all {@link Booking} belonging to the passenger with the specified kennitala
    */
-  public List<Booking> getBookingByKennitala(String kennitala);
+  public List<Booking> getBookingByKennitala(String kennitala) throws SQLException;
 
 
   /**
@@ -50,7 +50,7 @@ public interface BookingServiceLayerInterface {
    * @param id The passenger id being queried
    * @return List of all {@link Booking} belonging to the passenger with the specified passenger id
    */
-  public List<Booking> getBookingByPurchaserId(String id);
+  public List<Booking> getBookingByPurchaserId(String id) throws SQLException;
 
 
   /**
@@ -59,7 +59,7 @@ public interface BookingServiceLayerInterface {
    * 
    * @return List of all {@link Booking} entries sorted by booking date
    */
-  public List<Booking> getAllBookings();
+  public List<Booking> getAllBookings() throws SQLException;
 
 
   /**
