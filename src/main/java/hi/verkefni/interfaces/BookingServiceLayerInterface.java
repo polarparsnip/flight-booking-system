@@ -7,8 +7,10 @@ import hi.verkefni.classes.Booking;
 
 
 /**
- * The BookingServiceLayerInterface provides methods for interacting with booking entries in the database.
- * Implementing classes should provide functionality to create, update, retrieve, and delete bookings.
+ * The BookingServiceLayerInterface provides methods for interacting with 
+ * booking entries in the database.
+ * Implementing classes should provide functionality to create, update, 
+ * retrieve, and delete bookings.
  */
 public interface BookingServiceLayerInterface {
 

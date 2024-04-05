@@ -8,8 +8,10 @@ import hi.verkefni.classes.Flight;
 
 
 /**
- * The FlightServiceLayerInterface provides methods for searching and retrieving flight information from the database.
- * Implementing classes should provide functionality to search for flights based on various criteria and retrieve flights sorted by different attributes.
+ * The FlightServiceLayerInterface provides methods for searching and retrieving 
+ * flight information from the database.
+ * Implementing classes should provide functionality to search for flights based 
+ * on various criteria and retrieve flights sorted by different attributes.
  */
 public interface FlightServiceLayerInterface {
 

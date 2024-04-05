@@ -6,18 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 import hi.verkefni.interfaces.FlightControllerInterface;
 import hi.verkefni.interfaces.FlightServiceLayerInterface;
+import hi.verkefni.serviceLayers.FlightServiceLayer;
 
 
+/**
+ * The FlightServiceLayer provides methods for searching and retrieving 
+ * flight information from the database.
+ */
 public class FlightController implements FlightControllerInterface {
 
   private final FlightServiceLayerInterface FSL;
 
-
+  /**
+   * Constructor for the flight controller
+   * 
+   * @param BSL The {@link FlightServiceLayer} that the flight controller will use 
+   * to manage flights in the system.
+   */
   public FlightController(FlightServiceLayerInterface FSL) {
     this.FSL = FSL;
   }
 
 
+  /**
+   * Searches for a flight in the database based on flight number.
+   * 
+   * @param flightNr The flight number of the queried flight.
+   * @return The {@link Flight} with the specified flight number.
+   */
   public Flight searchFlightByFlightNr(String flightNr) {
     Flight flight = null;
 
@@ -31,6 +47,13 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Searches for flights in the database based on a specified price range.
+   * 
+   * @param priceLower The lower bound of the price range being queried.
+   * @param priceUpper The upper bound of the price range being queried.
+   * @return List of {@link Flight} within the specified price range.
+   */
   public List<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) {
     
     List<Flight> found = new ArrayList<>();;
@@ -45,6 +68,12 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Searches for flights in the database based on a specified departure date.
+   * 
+   * @param date The departure date which is being queried.
+   * @return List of {@link Flight} departing on the specified date.
+   */
   public List<Flight> searchFlightsByDepartureDate(LocalDate date) {
     
     List<Flight> found = new ArrayList<>();;
@@ -59,6 +88,12 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Searches for flights in the database based on a specified arrival date.
+   * 
+   * @param date The arrival date which is being queried.
+   * @return List of {@link Flight} arriving on the specified date.
+   */
   public List<Flight> searchFlightsByArrivalDate(LocalDate date) {
     
     List<Flight> found = new ArrayList<>();;
@@ -73,6 +108,13 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Searches for flights in the database based on a specified leg.
+   * 
+   * @param depAddress The departure address of the leg.
+   * @param arrAddress The arrival address of the leg.
+   * @return List of {@link Flight} flying the specified leg.
+   */
   public List<Flight> searchFlightsByDepArr(String depAddress, String arrAddress) {
     
     List<Flight> found = new ArrayList<>();;
@@ -87,6 +129,14 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Searches for flights in the database based on a specified leg and departure date.
+   * 
+   * @param depAddress The departure address of the leg.
+   * @param arrAddress The arrival address of the leg.
+   * @param depDate The departure date of the queried leg.
+   * @return List of {@link Flight} flying the specified leg on the specified date.
+   */
   public List<Flight> searchFlightsByDepArr(String depAddress, String arrAddress, LocalDate depDate) {
     
     List<Flight> found = new ArrayList<>();;
@@ -101,6 +151,11 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Gets all flights from the database sorted by price.
+   * 
+   * @return List of {@link Flight} sorted by price.
+   */
   public List<Flight> getSortedByPrice() {
     
     List<Flight> priceSorted = new ArrayList<>();;
@@ -115,6 +170,11 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Gets all flights from the database sorted by departure time.
+   * 
+   * @return List of {@link Flight} sorted by departure time.
+   */
   public List<Flight> getSortedByDepartureTime() {
 
     List<Flight> departureTimeSorted = new ArrayList<>();;
@@ -129,6 +189,11 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Gets all flights from the database sorted by arrival time.
+   * 
+   * @return List of {@link Flight} sorted by arrival time.
+   */
   public List<Flight> getSortedByArrivalTime() {
 
     List<Flight> arrivalTimeSorted = new ArrayList<>();;
@@ -143,6 +208,11 @@ public class FlightController implements FlightControllerInterface {
   }
 
 
+  /**
+   * Gets all flights from the database sorted by departure address.
+   * 
+   * @return List of {@link Flight} sorted by departure address.
+   */
   public List<Flight> getSortedByDepartureAddress() {
 
     List<Flight> departureAddressSorted = new ArrayList<>();;
@@ -156,7 +226,12 @@ public class FlightController implements FlightControllerInterface {
     return departureAddressSorted;
   }
 
-
+  
+  /**
+   * Gets all flights from the database sorted by arrival address.
+   * 
+   * @return List of {@link Flight} sorted by arrival address.
+   */
   public List<Flight> getSortedByArrivalAddress() {
 
     List<Flight> arrivalAddressSorted = new ArrayList<>();;
