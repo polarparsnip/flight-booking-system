@@ -1,17 +1,25 @@
-package hi.verkefni.interfaces;
+package hi.verkefni.serviceLayers;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import hi.verkefni.classes.Flight;
+import hi.verkefni.interfaces.FlightServiceLayerInterface;
 
 
 /**
- * The FlightServiceLayerInterface provides methods for searching and retrieving flight information from the database.
- * Implementing classes should provide functionality to search for flights based on various criteria and retrieve flights sorted by different attributes.
+ * The FlightServiceLayer provides methods for searching and retrieving flight information from the database.
  */
-public interface FlightServiceLayerInterface {
+public class FlightServiceLayer implements FlightServiceLayerInterface {
+
+  private final String databasePath = "sql/flightBookingSystem.db"; 
+
+
+  /**
+   * Constructor for the booking service layer.
+   */
+  public FlightServiceLayer() {}
 
   /**
    * Searches for a flight in the database based on flight number.
@@ -19,7 +27,7 @@ public interface FlightServiceLayerInterface {
    * @param flightNr The flight number of the queried flight.
    * @return The {@link Flight} with the specified flight number.
    */
-  public Flight searchFlightByFlightNr(String flightNr) throws SQLException;
+  public Flight searchFlightByFlightNr(String flightNr) {};
 
 
   /**
@@ -29,7 +37,7 @@ public interface FlightServiceLayerInterface {
    * @param priceUpper The upper bound of the price range being queried.
    * @return List of {@link Flight} within the specified price range.
    */
-  public ArrayList<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) throws SQLException;
+  public ArrayList<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) {};
 
 
   /**
@@ -38,7 +46,7 @@ public interface FlightServiceLayerInterface {
    * @param date The departure date which is being queried.
    * @return List of {@link Flight} departing on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByDepartureDate(LocalDate date) throws SQLException;
+  public ArrayList<Flight> searchFlightsByDepartureDate(LocalDate date) {};
 
   
   /**
@@ -47,7 +55,7 @@ public interface FlightServiceLayerInterface {
    * @param date The arrival date which is being queried.
    * @return List of {@link Flight} arriving on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByArrivalDate(LocalDate date) throws SQLException;
+  public ArrayList<Flight> searchFlightsByArrivalDate(LocalDate date) {};
 
 
   /**
@@ -57,7 +65,7 @@ public interface FlightServiceLayerInterface {
    * @param arrAddress The arrival address of the leg.
    * @return List of {@link Flight} flying the specified leg.
    */
-  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss) throws SQLException;
+  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss) {};
 
 
   /**
@@ -68,7 +76,7 @@ public interface FlightServiceLayerInterface {
    * @param depDate The departure date of the queried leg.
    * @return List of {@link Flight} flying the specified leg on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss, LocalDate depDate) throws SQLException;
+  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss, LocalDate depDate) {};
 
 
   /**
@@ -76,7 +84,7 @@ public interface FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by price.
    */
-  public ArrayList<Flight> getSortedByPrice() throws SQLException;
+  public ArrayList<Flight> getSortedByPrice() {};
 
 
   /**
@@ -84,7 +92,7 @@ public interface FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by departure time.
    */
-  public ArrayList<Flight> getSortedByDepartureTime() throws SQLException;
+  public ArrayList<Flight> getSortedByDepartureTime() {};
 
 
   /**
@@ -92,7 +100,7 @@ public interface FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by arrival time.
    */
-  public ArrayList<Flight> getSortedByArrivalTime() throws SQLException;
+  public ArrayList<Flight> getSortedByArrivalTime() {};
 
 
   /**
@@ -100,7 +108,7 @@ public interface FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by departure address.
    */
-  public ArrayList<Flight> getSortedByDepartureAddress() throws SQLException;
+  public ArrayList<Flight> getSortedByDepartureAddress() {};
 
 
   /**
@@ -108,6 +116,7 @@ public interface FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by arrival address.
    */
-  public ArrayList<Flight> getSortedByArrivalAddress() throws SQLException;
+  public ArrayList<Flight> getSortedByArrivalAddress() {};
   
+
 }
