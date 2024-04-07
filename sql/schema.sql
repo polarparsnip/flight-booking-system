@@ -37,6 +37,6 @@ CREATE TABLE Seats (
 CREATE TABLE BookedSeats (
     bookingId VARCHAR(15) REFERENCES Bookings(bookingId),
     bookingPassengerId VARCHAR(15) REFERENCES Passengers(passengerId),
-    bookedSeatNumber VARCHAR(3) REFERENCES Seats(seatNr),
+    bookedSeatNumber VARCHAR(3) REFERENCES Seats(seatNumber),
     PRIMARY KEY (bookingId, bookingPassengerId, bookedSeatNumber)
 );
