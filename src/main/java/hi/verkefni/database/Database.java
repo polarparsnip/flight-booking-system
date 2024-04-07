@@ -87,10 +87,9 @@ public class Database {
                     result = S.executeQuery(query);
                 } else {
                     S.executeUpdate(query);
+                    S.close();
                 }
 
-                S.close();
-                
             } catch (SQLException e) {
                 System.err.println(e);
             }
@@ -108,9 +107,8 @@ public class Database {
                     result = PS.executeQuery();
                 } else {
                     PS.executeUpdate();
+                    PS.close();
                 }
-                
-                PS.close();
         
             } catch (SQLException e) {
                 System.err.println(e);
