@@ -48,7 +48,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
       String[] seatsValues = { booking.getFlight().getFlightNr(), seat.getSeatNr() };
       if (!seat.getReservationStatus()) {
         db.query("UPDATE Seats set reserved = True WHERE flightNr = ? AND seatNumber = ?", seatsValues, false);
-        db.query("insert into Seats (bookingId, passengerId, seatNumber) values (?, ?, ?)", bookedSeatsValues, false);
+        db.query("insert into BookedSeats (bookingId, passengerId, seatNumber) values (?, ?, ?)", bookedSeatsValues,
+            false);
       }
     }
   };
@@ -94,6 +95,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    *         specified passenger id.
    */
   public List<Booking> getBookingByPurchaserId(String id) {
+    return null;
   };
 
   /**
@@ -104,6 +106,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @return List of all {@link Booking} entries sorted by booking date.
    */
   public List<Booking> getAllBookings() {
+    return null;
   };
 
   /**
