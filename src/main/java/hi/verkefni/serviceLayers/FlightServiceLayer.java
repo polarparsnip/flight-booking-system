@@ -1,10 +1,13 @@
 package hi.verkefni.serviceLayers;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import hi.verkefni.classes.Flight;
+import hi.verkefni.classes.Seat;
+import hi.verkefni.database.Database;
 import hi.verkefni.interfaces.FlightServiceLayerInterface;
 
 
@@ -19,7 +22,61 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
   /**
    * Constructor for the booking service layer.
    */
-  public FlightServiceLayer() {}
+  public FlightServiceLayer() {
+  }
+
+  public ArrayList<Flight> search(String flightsQuery) {
+
+    Flight returnFlight = null;
+    ArrayList<Flight> flightList = new ArrayList<Flight>();
+    Database db = new Database(databasePath);
+    db.open();
+
+    try {
+      ResultSet flightRS = db.query(flightsQuery, null, true);
+
+      while(flightRS.next()) {
+        
+
+        String returnFlightNr = flightRS.getString("flightNr");
+        String returnDepartureAddress = flightRS.getString("departureAddress");
+        String returnArrivalAddress = flightRS.getString("arrivalAddress");
+        LocalDate returnDepartureTime = flightRS.getObject("departureTime", LocalDate.class);
+        LocalDate returnArrivalTime = flightRS.getObject("arrivalTime", LocalDate.class);
+        Integer returnPrice = flightRS.getInt("price");
+
+        String seatsQuery = "SELECT * FROM Seats WHERE flightNr = '" + returnFlightNr + "';";
+        ArrayList<Seat> seatList = new ArrayList<Seat>();
+        ResultSet seatRS = db.query(seatsQuery, null, true);
+
+        while(seatRS.next()) {
+          String returnSeatNumber = seatRS.getString("seatNumber");
+          Boolean returnReserved = seatRS.getBoolean("reserved");
+
+          Seat returnSeat = new Seat(returnFlightNr, returnSeatNumber, returnReserved);
+
+          seatList.add(returnSeat);
+        }
+
+        returnFlight = new Flight(returnFlightNr, seatList, returnDepartureAddress, returnArrivalAddress, 
+        returnDepartureTime, returnArrivalTime, returnPrice);
+        flightList.add(returnFlight);
+
+        seatRS.close();
+      }
+
+      flightRS.close();
+
+    } catch(SQLException e) {
+      System.err.println("Error searching for flights: " + e);
+      System.err.println(e.getErrorCode());
+    }
+
+    db.close();
+
+    return flightList;
+
+  }
 
   /**
    * Searches for a flight in the database based on flight number.
@@ -28,7 +85,47 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return The {@link Flight} with the specified flight number.
    */
   public Flight searchFlightByFlightNr(String flightNr) {
-    return null;
+
+    Flight returnFlight = null;
+
+    String flightsQuery = "SELECT * from Flights WHERE flightNr = '" + flightNr + "';";
+    String seatsQuery = "SELECT * FROM Seats WHERE flightNr = '" + flightNr + "';";
+    
+    Database db = new Database(databasePath);
+    db.open();
+
+      
+
+    try {
+      ResultSet flightRS = db.query(flightsQuery, null, true);
+
+      String returnDepartureAddress = flightRS.getString("departureAddress");
+      String returnArrivalAddress = flightRS.getString("arrivalAddress");
+      LocalDate returnDepartureTime = flightRS.getObject("departureTime", LocalDate.class);
+      LocalDate returnArrivalTime = flightRS.getObject("arrivalTime", LocalDate.class);
+      Integer returnPrice = flightRS.getInt("price");
+
+      ArrayList<Seat> seatList = new ArrayList<Seat>();
+      ResultSet seatRS = db.query(seatsQuery, null, true);
+
+      while(seatRS.next()) {
+        String returnSeatNumber = seatRS.getString("seatNumber");
+        Boolean returnReserved = seatRS.getBoolean("reserved");
+
+        Seat returnSeat = new Seat(flightNr, returnSeatNumber, returnReserved);
+
+        seatList.add(returnSeat);
+      }
+
+      returnFlight = new Flight(flightNr, seatList, returnDepartureAddress, returnArrivalAddress, 
+        returnDepartureTime, returnArrivalTime, returnPrice);
+      
+    } catch(Exception e) {
+      System.err.println("Error searching for flights: " + e);
+    }
+    db.close();
+    return returnFlight;
+
   };
 
 
@@ -40,7 +137,12 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} within the specified price range.
    */
   public ArrayList<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) {
-    return null;
+    String flightsQuery = "SELECT * from Flights WHERE price >= " + String.valueOf(priceLower) + " AND price <= " + 
+      String.valueOf(priceUpper) + ";";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -51,7 +153,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} departing on the specified date.
    */
   public ArrayList<Flight> searchFlightsByDepartureDate(LocalDate date) {
-    return null;
+    String flightsQuery = "SELECT * from Flights WHERE departureTime = '" + date.toString() + "';";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
   
@@ -62,7 +168,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} arriving on the specified date.
    */
   public ArrayList<Flight> searchFlightsByArrivalDate(LocalDate date) {
-    return null;
+    String flightsQuery = "SELECT * from Flights WHERE arrivalTime = '" + date.toString() + "';";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -73,8 +183,12 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param arrAddress The arrival address of the leg.
    * @return List of {@link Flight} flying the specified leg.
    */
-  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss) {
-    return null;
+  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddress) {
+    String flightsQuery = "SELECT * from Flights WHERE departureAddress = '" + depAddress + "' AND arrivalAddress = '" + arrAddress + "';";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -86,8 +200,13 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param depDate The departure date of the queried leg.
    * @return List of {@link Flight} flying the specified leg on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss, LocalDate depDate) {
-    return null;
+  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddress, LocalDate depDate) {
+    String flightsQuery = "SELECT * from Flights WHERE departureAddress = '" + depAddress + "' AND arrivalAddress = '" + arrAddress + 
+      "' AND departureTime = '" + depDate + "';";
+
+      ArrayList<Flight> flightReturn = search(flightsQuery);
+
+      return flightReturn;
   };
 
 
@@ -97,7 +216,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} sorted by price.
    */
   public ArrayList<Flight> getSortedByPrice() {
-    return null;
+    String flightsQuery = "SELECT * from Flights ORDER BY price;";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -107,7 +230,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} sorted by departure time.
    */
   public ArrayList<Flight> getSortedByDepartureTime() {
-    return null;
+    String flightsQuery = "SELECT * from Flights ORDER BY departureTime;";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -117,7 +244,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} sorted by arrival time.
    */
   public ArrayList<Flight> getSortedByArrivalTime() {
-    return null;
+    String flightsQuery = "SELECT * from Flights ORDER BY arrivalTime;";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -127,7 +258,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} sorted by departure address.
    */
   public ArrayList<Flight> getSortedByDepartureAddress() {
-    return null;
+    String flightsQuery = "SELECT * from Flights ORDER BY departureAddress;";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
 
 
@@ -137,7 +272,11 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @return List of {@link Flight} sorted by arrival address.
    */
   public ArrayList<Flight> getSortedByArrivalAddress() {
-    return null;
+    String flightsQuery = "SELECT * from Flights ORDER BY arrivalAddress;";
+
+    ArrayList<Flight> flightReturn = search(flightsQuery);
+
+    return flightReturn;
   };
   
 
