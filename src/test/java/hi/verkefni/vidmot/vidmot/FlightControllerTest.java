@@ -1,6 +1,5 @@
 package hi.verkefni.vidmot.vidmot;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -14,8 +13,8 @@ import org.junit.Test;
 import hi.verkefni.classes.Flight;
 import hi.verkefni.classes.Seat;
 import hi.verkefni.interfaces.FlightServiceLayerInterface;
+import hi.verkefni.serviceLayers.FlightServiceLayer;
 import hi.verkefni.vidmot.FlightController;
-import hi.verkefni.vidmot.mocks.FlightServiceLayerMock;
 
 public class FlightControllerTest {
 
@@ -32,7 +31,7 @@ public class FlightControllerTest {
   public void setUp() {
 
     int day = 4;
-    FlightServiceLayerInterface FSL = new FlightServiceLayerMock();
+    FlightServiceLayerInterface FSL = new FlightServiceLayer();
     FC = new FlightController(FSL);
     flights = new ArrayList<>();
 
@@ -46,7 +45,7 @@ public class FlightControllerTest {
 
       LocalDate date = LocalDate.of(2024, 4, day + i);
 
-      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (20000 + i * 2000)));
+      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (0000 + i * 2000)));
     }
   }
 
@@ -65,7 +64,7 @@ public class FlightControllerTest {
     oracle.add(flights.get(1));
 
     ArrayList<Flight> priceFiltered = new ArrayList<>(
-      FC.searchFlightsByPriceRange(19000, 23000)
+      FC.searchFlightsByPriceRange(9000, 13000)
     );
 
     try {
