@@ -180,7 +180,17 @@ public class Booking {
    */
   public List<Seat> getSeatsInBooking() {
     Collection<Seat> seatValues = bookedSeats.values();
-    List<Seat> bookedSeats = new ArrayList<>(seatValues);
+    List<Seat> seatsInBooking = new ArrayList<>(seatValues);
+    return seatsInBooking;
+  }
+
+
+  /**
+   * Gets all the passengers and their respective {@link Seat} reserved in this booking
+   * 
+   * @return Map of passenger ids and their {@link Seat} reserved in this booking
+   */
+  public Map<String, Seat> getBookedSeats() {
     return bookedSeats;
   }
 
