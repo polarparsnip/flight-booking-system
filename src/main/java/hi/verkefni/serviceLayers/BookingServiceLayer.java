@@ -18,7 +18,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
   /**
    * Constructor for the booking service layer.
    */
-  public BookingServiceLayer() {}
+  public BookingServiceLayer() {
+    
+  }
 
   
   /**
@@ -43,7 +45,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * 
    * @return {@link Booking} object with the queried booking id.
    */
-  public Booking getBookingById(String bookingId) {};
+  public Booking getBookingById(String bookingId) {
+    return null;
+  };
 
 
   /**
@@ -53,7 +57,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @param kennitala The kennitala being queried.
    * @return List of all {@link Booking} belonging to the passenger with the specified kennitala.
    */
-  public List<Booking> getBookingByKennitala(String kennitala) {};
+  public List<Booking> getBookingByKennitala(String kennitala) {
+    return null;
+  };
 
 
   /**
@@ -63,7 +69,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @param id The passenger id being queried
    * @return List of all {@link Booking} belonging to the passenger with the specified passenger id.
    */
-  public List<Booking> getBookingByPurchaserId(String id) {};
+  public List<Booking> getBookingByPurchaserId(String id) {
+    return null;
+  };
 
 
   /**
@@ -72,7 +80,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * 
    * @return List of all {@link Booking} entries sorted by booking date.
    */
-  public List<Booking> getAllBookings() {};
+  public List<Booking> getAllBookings() {
+    return null;
+  };
 
 
   /**
@@ -80,7 +90,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * 
    * @param booking The {@link Booking} to be deleted from the database.
    */
-  public void deleteBooking(Booking booking) {};
+  public void deleteBooking(Booking booking) {
+    
+  };
   
 
 }

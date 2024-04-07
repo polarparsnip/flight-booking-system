@@ -27,7 +27,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param flightNr The flight number of the queried flight.
    * @return The {@link Flight} with the specified flight number.
    */
-  public Flight searchFlightByFlightNr(String flightNr) {};
+  public Flight searchFlightByFlightNr(String flightNr) {
+    return null;
+  };
 
 
   /**
@@ -37,7 +39,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param priceUpper The upper bound of the price range being queried.
    * @return List of {@link Flight} within the specified price range.
    */
-  public ArrayList<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) {};
+  public ArrayList<Flight> searchFlightsByPriceRange(int priceLower, int priceUpper) {
+    return null;
+  };
 
 
   /**
@@ -46,7 +50,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param date The departure date which is being queried.
    * @return List of {@link Flight} departing on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByDepartureDate(LocalDate date) {};
+  public ArrayList<Flight> searchFlightsByDepartureDate(LocalDate date) {
+    return null;
+  };
 
   
   /**
@@ -55,7 +61,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param date The arrival date which is being queried.
    * @return List of {@link Flight} arriving on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByArrivalDate(LocalDate date) {};
+  public ArrayList<Flight> searchFlightsByArrivalDate(LocalDate date) {
+    return null;
+  };
 
 
   /**
@@ -65,7 +73,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param arrAddress The arrival address of the leg.
    * @return List of {@link Flight} flying the specified leg.
    */
-  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss) {};
+  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss) {
+    return null;
+  };
 
 
   /**
@@ -76,7 +86,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * @param depDate The departure date of the queried leg.
    * @return List of {@link Flight} flying the specified leg on the specified date.
    */
-  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss, LocalDate depDate) {};
+  public ArrayList<Flight> searchFlightsByDepArr(String depAddress, String arrAddrss, LocalDate depDate) {
+    return null;
+  };
 
 
   /**
@@ -84,7 +96,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by price.
    */
-  public ArrayList<Flight> getSortedByPrice() {};
+  public ArrayList<Flight> getSortedByPrice() {
+    return null;
+  };
 
 
   /**
@@ -92,7 +106,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by departure time.
    */
-  public ArrayList<Flight> getSortedByDepartureTime() {};
+  public ArrayList<Flight> getSortedByDepartureTime() {
+    return null;
+  };
 
 
   /**
@@ -100,7 +116,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by arrival time.
    */
-  public ArrayList<Flight> getSortedByArrivalTime() {};
+  public ArrayList<Flight> getSortedByArrivalTime() {
+    return null;
+  };
 
 
   /**
@@ -108,7 +126,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by departure address.
    */
-  public ArrayList<Flight> getSortedByDepartureAddress() {};
+  public ArrayList<Flight> getSortedByDepartureAddress() {
+    return null;
+  };
 
 
   /**
@@ -116,7 +136,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
    * 
    * @return List of {@link Flight} sorted by arrival address.
    */
-  public ArrayList<Flight> getSortedByArrivalAddress() {};
+  public ArrayList<Flight> getSortedByArrivalAddress() {
+    return null;
+  };
   
 
 }
