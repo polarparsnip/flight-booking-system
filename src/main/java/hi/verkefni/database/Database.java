@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 
-
 /**
  * The Database class represents a simple SQLite database connection handler.
- * It provides methods for opening, closing, and checking the status of the connection.
+ * It provides methods for opening, closing, and checking the status of the
+ * connection.
  */
 public class Database {
     private Connection connection;
@@ -24,7 +24,6 @@ public class Database {
     public Database(String dbPath) {
         connectionUrl = String.format("jdbc:sqlite:%s", dbPath);
     }
-
 
     /**
      * Opens a connection to the SQLite database if not already open.
@@ -40,21 +39,19 @@ public class Database {
         }
     }
 
-
     /**
      * Closes the connection to the SQLite database if it is open.
      * If the connection is already closed, this method does nothing.
      */
     public void close() {
         try {
-          if (connection != null) {
-            connection.close();
-          }
+            if (connection != null) {
+                connection.close();
+            }
         } catch (Exception e) {
-          System.err.println(e);
+            System.err.println(e);
         }
     }
-
 
     /**
      * Checks if the connection to the SQLite database is currently open.
@@ -65,19 +62,21 @@ public class Database {
         return connection != null;
     }
 
-
     /**
      * Executes a SQL query on the database with optional parameters.
      * 
-     * @param query the SQL query to execute
-     * @param values an array of parameter values to be bound to the query, or an empty array/null if no parameters are needed
-     * @param selectStatement a boolean indicating whether the query is a SELECT statement or not
-     * @return a ResultSet containing the results of the query if it is a SELECT statement, or null otherwise
+     * @param query           the SQL query to execute
+     * @param values          an array of parameter values to be bound to the query,
+     *                        or an empty array/null if no parameters are needed
+     * @param selectStatement a boolean indicating whether the query is a SELECT
+     *                        statement or not
+     * @return a ResultSet containing the results of the query if it is a SELECT
+     *         statement, or null otherwise
      */
     public ResultSet query(String query, String[] values, Boolean selectStatement) {
 
         ResultSet result = null;
-        
+
         if (values == null || values.length == 0) {
 
             try {
@@ -90,7 +89,7 @@ public class Database {
                 }
 
                 S.close();
-                
+
             } catch (SQLException e) {
                 System.err.println(e);
             }
@@ -99,19 +98,19 @@ public class Database {
 
             try {
                 PreparedStatement PS = connection.prepareStatement(query);
-        
-                for (int i = 1; i < values.length+1; i++) {
+
+                for (int i = 1; i < values.length + 1; i++) {
                     PS.setString(i, values[i]);
                 }
-                
+
                 if (selectStatement) {
                     result = PS.executeQuery();
                 } else {
                     PS.executeUpdate();
                 }
-                
+
                 PS.close();
-        
+
             } catch (SQLException e) {
                 System.err.println(e);
             }

@@ -44,13 +44,13 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         BookingValues, false);
 
     for (Seat seat : booking.getSeatsInBooking()) {
-      String[] SeatValues = { booking.getBookingId(), booking.getBookingPurchaser().getId(), seat.getSeatNr() };
+      String[] bookedSeatsValues = { booking.getBookingId(), booking.getBookingPurchaser().getId(), seat.getSeatNr() };
+      String[] seatsValues = { booking.getFlight().getFlightNr(), seat.getSeatNr() };
       if (!seat.getReservationStatus()) {
-        db.query("UPDATE Seats set bookingId = ?, passengerId = ? and seatNumber = ?", SeatValues, false);
+        db.query("UPDATE Seats set reserved = True WHERE flightNr = ? AND seatNumber = ?", seatsValues, false);
+        db.query("insert into Seats (bookingId, passengerId, seatNumber) values (?, ?, ?)", bookedSeatsValues, false);
       }
     }
-
-    db.close();
   };
 
   /**
@@ -112,6 +112,23 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @param booking The {@link Booking} to be deleted from the database.
    */
   public void deleteBooking(Booking booking) {
-  };
+    Database db = new Database(databasePath);
+    db.open();
+
+    String[] bookingId = { booking.getBookingId() };
+
+    for (Seat seat : booking.getSeatsInBooking()) {
+      String[] bookedSeatsValues = { booking.getBookingId(), booking.getBookingPurchaser().getId(), seat.getSeatNr() };
+
+      if (seat.getReservationStatus()) {
+        db.query("UPDATE Seats set reserved = False WHERE flightNr = ? AND seatNumber = ?", bookedSeatsValues, false);
+        db.query("DELETE FROM BookedSeats where bookingId = ?", bookingId, false);
+      }
+
+      db.query("DELETE FROM Bookings WHERE bookingId = ?", bookingId, false);
+
+      db.close();
+    }
+    ;
 
 }

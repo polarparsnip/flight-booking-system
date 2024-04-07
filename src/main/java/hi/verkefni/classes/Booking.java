@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.time.LocalDate;
 
-
 public class Booking {
   private final Passenger purchaser;
   private final Flight flight;
@@ -19,19 +18,19 @@ public class Booking {
   /**
    * Booking constructor
    * 
-   * @param purchaser The {@link Passenger} that booked this booking
-   * @param flight The {@link Flight} this booking is for
+   * @param purchaser  The {@link Passenger} that booked this booking
+   * @param flight     The {@link Flight} this booking is for
    * @param passengers The list of {@link Passenger} this booking is for
-   * @param seats The list of {@link Seat} to be reserved for all the {@link Passenger} of this booking
-   * @param insured Boolean specifying whether this flight booking is insured
+   * @param seats      The list of {@link Seat} to be reserved for all the
+   *                   {@link Passenger} of this booking
+   * @param insured    Boolean specifying whether this flight booking is insured
    */
   public Booking(
-    Passenger purchaser, 
-    Flight flight, 
-    List<Passenger> passengers, 
-    List<Seat> seats, 
-    Boolean insured
-  ) {
+      Passenger purchaser,
+      Flight flight,
+      List<Passenger> passengers,
+      List<Seat> seats,
+      Boolean insured) {
 
     this.purchaser = purchaser;
     this.flight = flight;
@@ -39,20 +38,19 @@ public class Booking {
     bookingDate = LocalDate.now();
 
     this.bookingId = String.format("BKNG%s-%s-%s", flight.getFlightNr(), purchaser.getId(), bookingDate.toString());
-    
+
     bookedSeats = new HashMap<>();
 
     for (int i = 0; i < passengers.size(); i++) {
       Seat seat = seats.get(i);
-      
-      if(flight.getSeats().contains(seat) && !seat.getReservationStatus()) {
+
+      if (flight.getSeats().contains(seat) && !seat.getReservationStatus()) {
         seats.get(i).updateReservation(true);
-        bookedSeats.put(passengers.get(i).getId(), seats.get(i));        
+        bookedSeats.put(passengers.get(i).getId(), seats.get(i));
       }
     }
 
   }
-
 
   /**
    * Returns the booking id for this booking
@@ -63,7 +61,6 @@ public class Booking {
     return bookingId;
   }
 
-
   /**
    * Returns the flight this booking is for
    * 
@@ -73,7 +70,6 @@ public class Booking {
     return flight;
   }
 
-
   /**
    * Returns the flight number of the flight this booking is for
    * 
@@ -82,7 +78,6 @@ public class Booking {
   public String getFlightNr() {
     return flight.getFlightNr();
   }
-
 
   /**
    * Adds a {@link Passenger} to this booking
@@ -97,7 +92,6 @@ public class Booking {
     }
   }
 
-
   /**
    * Removes a {@link Passenger} from this booking
    * The {@link Seat} reservation status is updated alongside the booking
@@ -110,10 +104,9 @@ public class Booking {
       bookedSeats.remove(passenger.getId());
     }
   }
-  
 
   /**
-   * Returns the price of this booking 
+   * Returns the price of this booking
    * 
    * @return Price of this booking
    */
@@ -121,26 +114,23 @@ public class Booking {
     return flight.getPrice() * bookedSeats.size();
   }
 
-
   /**
-   * Returns the {@link Passenger} that booked this booking 
+   * Returns the {@link Passenger} that booked this booking
    * 
-   * @return {@link Passenger} that booked this booking 
+   * @return {@link Passenger} that booked this booking
    */
   public Passenger getBookingPurchaser() {
     return purchaser;
   }
 
-
   /**
-   * Returns whether this booking has baught booking insurance 
+   * Returns whether this booking has baught booking insurance
    * 
    * @return Boolean specifying whether this booking has insurance attached to it
    */
   public Boolean isInsured() {
     return insured;
   }
-
 
   /**
    * Updates the insurance status of this booking
@@ -151,7 +141,6 @@ public class Booking {
     this.insured = insured;
   }
 
-
   /**
    * Gets the booking date of this booking
    * 
@@ -160,7 +149,6 @@ public class Booking {
   public LocalDate getBookingDate() {
     return bookingDate;
   }
-
 
   /**
    * Gets the id of all the passengers reserved in this booking
@@ -171,7 +159,6 @@ public class Booking {
     List<String> passengersInBooking = new ArrayList<>(bookedSeats.keySet());
     return passengersInBooking;
   }
-
 
   /**
    * Gets all the {@link Seat} reserved in this booking
@@ -184,9 +171,9 @@ public class Booking {
     return seatsInBooking;
   }
 
-
   /**
-   * Gets all the passengers and their respective {@link Seat} reserved in this booking
+   * Gets all the passengers and their respective {@link Seat} reserved in this
+   * booking
    * 
    * @return Map of passenger ids and their {@link Seat} reserved in this booking
    */
@@ -194,9 +181,9 @@ public class Booking {
     return bookedSeats;
   }
 
-
   /**
-   * Gets the seat number of a specific passenger in the booking using passenger id
+   * Gets the seat number of a specific passenger in the booking using passenger
+   * id
    * 
    * @return The seat number of the passenger with the specified passenger id
    */
@@ -208,10 +195,9 @@ public class Booking {
     return null;
   }
 
-
   @Override
   public boolean equals(Object o) {
-    
+
     if (o == this) {
       return true;
     }
@@ -225,11 +211,10 @@ public class Booking {
     return bookingId.equals(b.bookingId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    
+
     sb.append("Bókunar Auðkenni: ").append(bookingId).append("\n");
     sb.append("Kaupandi: ").append(purchaser.getName()).append("\n");
     sb.append("Flugnúmer: ").append(flight.getFlightNr()).append("\n");
@@ -240,7 +225,8 @@ public class Booking {
     sb.append("Flugtrygging: ").append(insuredStatusString).append("\n");
 
     for (Map.Entry<String, Seat> entry : bookedSeats.entrySet()) {
-      sb.append("Farþegar í bókun: ").append(entry.getKey()).append(", Seat: ").append(entry.getValue().getSeatNr()).append("\n");
+      sb.append("Farþegar í bókun: ").append(entry.getKey()).append(", Seat: ").append(entry.getValue().getSeatNr())
+          .append("\n");
     }
 
     return sb.toString();
