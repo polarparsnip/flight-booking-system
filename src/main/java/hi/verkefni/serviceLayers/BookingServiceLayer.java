@@ -68,6 +68,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @return {@link Booking} object with the queried booking id.
    */
   public Booking getBookingById(String bookingId) {
+    return null;
   };
 
 
@@ -121,4 +122,4 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     }
     ;
 
-}
+}}
