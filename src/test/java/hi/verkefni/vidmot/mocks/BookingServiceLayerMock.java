@@ -74,33 +74,6 @@ public class BookingServiceLayerMock implements BookingServiceLayerInterface {
 
   /**
    * Mock method that gets all {@link Booking} entries in the system booked by 
-   * the {@link Passenger} with the specified kennitala.
-   * 
-   * @param kennitala The kennitala of the {@link Passenger} for the bookings being queried.
-   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified kennitala.
-   */
-  public List<Booking> getBookingByKennitala(String kennitala) {
-
-    ArrayList<Booking> ktFilteredBookings = new ArrayList<>();
-
-    for (Booking b : bookings) {
-      if (b.getBookingPurchaser().getKennitala().equals(kennitala)) {
-        ktFilteredBookings.add(b);
-      }
-    }
-
-    ktFilteredBookings.sort(new Comparator<Booking>() {
-      public int compare(Booking Booking1, Booking Booking2) {
-        return Booking1.getBookingDate().compareTo(Booking2.getBookingDate());
-      }
-    });
-
-    return ktFilteredBookings;
-  }
-
-
-  /**
-   * Mock method that gets all {@link Booking} entries in the system booked by 
    * the {@link Passenger} with the specified passenger id.
    * 
    * @param id The passenger id of the {@link Passenger} whose bookings are being queried.

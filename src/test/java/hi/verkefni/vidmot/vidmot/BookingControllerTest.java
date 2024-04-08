@@ -43,14 +43,12 @@ public class BookingControllerTest {
 
     testPassenger = new Passenger(
       "TH-0203040506", 
-      "Tryggvi Hjálmarsson", 
-      "020290-5555"
+      "Tryggvi Hjálmarsson"
     );
 
     testPassenger2 = new Passenger(
       "KT-0304050607", 
-      "Klara Tryggvadóttir", 
-      "020202-6666"
+      "Klara Tryggvadóttir"
     );
 
     ArrayList<Seat> seats = new ArrayList<>();
@@ -136,27 +134,7 @@ public class BookingControllerTest {
     Booking idBooking = BC.getBookingById(idTestBooking.getBookingId());
     assertEquals(idTestBooking, idBooking);
   }
-
-
-  @Test
-  public void getBookingByKennitala() {
-    List<Passenger> testpassengerList = new ArrayList<>();
-    testpassengerList.add(testPassenger);
-    List<Seat> testSeatList = new ArrayList<>();
-    testSeatList.add(testFlight.getSeats().get(0));
-    
-    Booking ktTestBooking = BC.createBooking(
-      testPassenger, 
-      testFlight, 
-      testpassengerList, 
-      testSeatList, 
-      false
-    );
-
-    List<Booking> ktBookings = BC.getBookingsByKennitala(testPassenger.getKennitala());
-    assertEquals(ktTestBooking, ktBookings.get(0));
-  }
-
+  
 
   @Test
   public void getBookingByPurchaserId() {

@@ -40,16 +40,6 @@ public interface BookingServiceLayerInterface {
 
 
   /**
-   * Gets all bookings from the database made by the passenger with the specified kennitala.
-   * and converts them into a list of {@link Booking} objects that is then returned.
-   * 
-   * @param kennitala The kennitala being queried.
-   * @return List of all {@link Booking} belonging to the passenger with the specified kennitala.
-   */
-  public List<Booking> getBookingByKennitala(String kennitala) throws SQLException;
-
-
-  /**
    * Gets all bookings from the database made by the passenger with the specified passenger id.
    * and converts them into a list of {@link Booking} objects that is then returned.
    * 
