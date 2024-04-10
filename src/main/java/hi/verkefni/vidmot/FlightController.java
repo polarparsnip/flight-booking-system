@@ -7,42 +7,15 @@ import java.util.List;
 import hi.verkefni.interfaces.FlightControllerInterface;
 import hi.verkefni.interfaces.FlightServiceLayerInterface;
 import hi.verkefni.serviceLayers.FlightServiceLayer;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import javafx.fxml.FXML;
+
 
 /**
  * The FlightServiceLayer provides methods for searching and retrieving 
  * flight information from the database.
  */
 public class FlightController implements FlightControllerInterface {
-  @FXML
-  private TextField departPlace;
-
-  @FXML
-  private TextField destinationPlace;
-
-  @FXML
-  private DatePicker departDate;
-
-  @FXML
-  private DatePicker returnDate;
-
-  @FXML
-  private Button fxSearchFlights;
-
-  @FXML
-  private ComboBox travellersComboBox;
 
   private final FlightServiceLayerInterface FSL;
-
-  public void searchButton(ActionEvent event) {
-    
-  }
-
 
   /**
    * Constructor for the flight controller
