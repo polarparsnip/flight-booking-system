@@ -1,6 +1,8 @@
 package hi.verkefni.serviceLayers;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import hi.verkefni.classes.Booking;
@@ -69,19 +71,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @return {@link Booking} object with the queried booking id.
    */
   public Booking getBookingById(String bookingId) {
-  };
-
-  /**
-   * Gets all bookings from the database made by the passenger with the specified
-   * kennitala.
-   * and converts them into a list of {@link Booking} objects that is then
-   * returned.
-   * 
-   * @param kennitala The kennitala being queried.
-   * @return List of all {@link Booking} belonging to the passenger with the
-   *         specified kennitala.
-   */
-  public List<Booking> getBookingByKennitala(String kennitala) {
+    return null;
   };
 
   /**
@@ -133,5 +123,5 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
       db.close();
     }
     ;
-
+  };
 }
