@@ -14,19 +14,22 @@
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="bg-form" stylesheets="@loginDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane layoutY="80.0" maxHeight="500.0" maxWidth="528.0" prefHeight="399.0" prefWidth="495.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <AnchorPane layoutX="139.0" layoutY="110.0" maxHeight="500.0" maxWidth="528.0" prefHeight="399.0" prefWidth="474.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="151.0">
                <children>
-                  <Label layoutX="285.0" layoutY="173.0" prefHeight="34.0" prefWidth="97.0" text="Sign In" textAlignment="CENTER">
+                  <Label layoutX="188.0" layoutY="173.0" prefHeight="34.0" prefWidth="97.0" text="Sign In" textAlignment="CENTER">
                      <font>
                         <Font name="Baskerville Old Face" size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="fxUserName" layoutX="228.0" layoutY="220.0" prefHeight="26.0" prefWidth="211.0" promptText="User name" />
-                  <Button fx:id="fxLoginButton" layoutX="297.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="34.0" prefWidth="73.0" text="Login" />
+                  <TextField fx:id="userName" layoutX="131.0"
+                             layoutY="222.0" prefHeight="26.0" prefWidth="211.0" promptText="User name" />
+                  <Button fx:id="loginButton" layoutX="200.0"
+                          layoutY="350.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="34.0" prefWidth="73.0" text="Login" />
 
-                  <Hyperlink layoutX="275.0" layoutY="309.0" text="Create an account" />
-                  <PasswordField fx:id="fxUserPassword" layoutX="228.0" layoutY="264.0" prefHeight="26.0" prefWidth="211.0" promptText="Password" />
-                  <ImageView fitHeight="99.0" fitWidth="97.0" layoutX="316.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="285.0">
+                  <Hyperlink layoutX="178.0" layoutY="318.0" text="Create an account" />
+                  <PasswordField fx:id="userPassword" layoutX="131.0"
+                                 layoutY="267.0" prefHeight="26.0" prefWidth="211.0" promptText="Password" />
+                  <ImageView fitHeight="99.0" fitWidth="97.0" layoutX="188.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0">
                      <image>
                         <Image url="@picture/6681204.png" />
                      </image>

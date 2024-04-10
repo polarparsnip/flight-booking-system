@@ -33,10 +33,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     Database db = new Database(databasePath);
     db.open();
 
-    String[] PassengerValues = { booking.getBookingPurchaser().getId(), booking.getBookingPurchaser().getName(),
-        booking.getBookingPurchaser().getKennitala() };
+    String[] PassengerValues = { booking.getBookingPurchaser().getId(), booking.getBookingPurchaser().getName() };
 
-    db.query("insert or ignore into Passengers (passengerId, name, kennitala) values (?, ?, ?)", PassengerValues,
+    db.query("insert or ignore into Passengers (passengerId, name) values (?, ?)", PassengerValues,
         false);
 
     String[] BookingValues = { booking.getBookingPurchaser().getId(), booking.getBookingId(),
@@ -123,5 +122,6 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
       db.close();
     }
     ;
-  };
+
+  }
 }

@@ -62,15 +62,6 @@ public interface BookingControllerInterface {
 
 
   /**
-   * Gets all {@link Booking} entries booked by the {@link Passenger} with the specified kennitala.
-   * 
-   * @param kennitala The kennitala of the {@link Passenger} for the bookings being queried.
-   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified kennitala.
-   */
-  public List<Booking> getBookingsByKennitala(String kennitala);
-
-
-  /**
    * Gets all {@link Booking} entries booked by the {@link Passenger} with the specified passenger id.
    * 
    * @param id The passenger id of the {@link Passenger} whose bookings are being queried.
