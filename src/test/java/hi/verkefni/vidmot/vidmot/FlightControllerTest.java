@@ -45,7 +45,7 @@ public class FlightControllerTest {
 
       LocalDate date = LocalDate.of(2024, 4, day + i);
 
-      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (0000 + i * 2000)));
+      flights.add(new Flight(flightNr, seats, departureAddresses[i], arrivalAddresses[i], date, date, (10000 + i * 2000)));
     }
   }
 
