@@ -105,26 +105,6 @@ public class BookingController implements BookingControllerInterface {
 
     return idBooking;
   }
-  
-
-  /**
-   * Gets all {@link Booking} entries booked by the {@link Passenger} with the specified kennitala.
-   * 
-   * @param kennitala The kennitala of the {@link Passenger} for the bookings being queried.
-   * @return List of all {@link Booking} objects of the {@link Passenger} with the specified kennitala.
-   */
-  public List<Booking> getBookingsByKennitala(String kennitala) {
-
-    List<Booking> ktBookings = new ArrayList<>();;
-
-    try {
-      ktBookings = BSL.getBookingByKennitala(kennitala);
-    } catch (Exception e) {
-      System.err.println("Error in getting booking by kennitala: " + e);
-    }
-
-    return ktBookings;
-  }
 
 
   /**

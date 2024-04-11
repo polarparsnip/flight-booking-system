@@ -3,24 +3,21 @@ package hi.verkefni.classes;
 
 /**
  * The Passenger class represents a passenger registered in the system.
- * It stores information such as the passenger's identification number, name, and kennitala.
+ * It stores information such as the passenger's identification number, and name.
  */
 public class Passenger {
   private final String passengerId;
   private final String name;
-  private final String kennitala;
 
   /**
    * Passenger constructor
    * 
    * @param passengerId The identification number for the passenger being registered
    * @param name The name of the passenger being registered
-   * @param kennitala The kennitala of the passenger being registered
    */
-  public Passenger(String passengerId, String name, String kennitala) {
+  public Passenger(String passengerId, String name) {
     this.passengerId = passengerId;
     this.name = name;
-    this.kennitala = kennitala;
   }
 
 
@@ -44,19 +41,9 @@ public class Passenger {
   }
 
 
-  /**
-   * Gets the kennitala of this passenger
-   * 
-   * @return Kennitala for this passenger
-   */
-  public String getKennitala() {
-    return this.kennitala;
-  }
-
-
   @Override
   public String toString() {
-      return "Auðkenni: " + passengerId + ", Nafn: " + name + ", Kennitala: " + kennitala;
+      return "Auðkenni: " + passengerId + ", Nafn: " + name;
   }
 
 }

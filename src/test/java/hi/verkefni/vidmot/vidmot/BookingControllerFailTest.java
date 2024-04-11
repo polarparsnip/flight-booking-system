@@ -42,14 +42,12 @@ public class BookingControllerFailTest {
 
     testPassenger = new Passenger(
       "TH-0203040506", 
-      "Tryggvi Hjálmarsson", 
-      "020290-5555"
+      "Tryggvi Hjálmarsson"
     );
 
     testPassenger2 = new Passenger(
       "KT-0304050607", 
-      "Klara Tryggvadóttir", 
-      "020202-6666"
+      "Klara Tryggvadóttir"
     );
 
     ArrayList<Seat> seats = new ArrayList<>();
@@ -134,26 +132,6 @@ public class BookingControllerFailTest {
 
     Booking idBooking = BC.getBookingById(idTestBooking.getBookingId());
     assertNull(idBooking);
-  }
-  
-
-  @Test
-  public void getBookingByKennitala() {
-    List<Passenger> testpassengerList = new ArrayList<>();
-    testpassengerList.add(testPassenger);
-    List<Seat> testSeatList = new ArrayList<>();
-    testSeatList.add(testFlight.getSeats().get(0));
-    
-    BC.createBooking(
-      testPassenger, 
-      testFlight, 
-      testpassengerList, 
-      testSeatList, 
-      false
-    );
-
-    List<Booking> ktBookings = BC.getBookingsByKennitala(testPassenger.getKennitala());
-    assertTrue(ktBookings.isEmpty());
   }
 
 

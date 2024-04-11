@@ -31,10 +31,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     Database db = new Database(databasePath);
     db.open();
 
-    String[] PassengerValues = { booking.getBookingPurchaser().getId(), booking.getBookingPurchaser().getName(),
-        booking.getBookingPurchaser().getKennitala() };
+    String[] PassengerValues = { booking.getBookingPurchaser().getId(), booking.getBookingPurchaser().getName() };
 
-    db.query("insert or ignore into Passengers (passengerId, name, kennitala) values (?, ?, ?)", PassengerValues,
+    db.query("insert or ignore into Passengers (passengerId, name) values (?, ?)", PassengerValues,
         false);
 
     String[] BookingValues = { booking.getBookingPurchaser().getId(), booking.getBookingId(),
@@ -69,20 +68,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
    * @return {@link Booking} object with the queried booking id.
    */
   public Booking getBookingById(String bookingId) {
+    return null;
   };
 
-  /**
-   * Gets all bookings from the database made by the passenger with the specified
-   * kennitala.
-   * and converts them into a list of {@link Booking} objects that is then
-   * returned.
-   * 
-   * @param kennitala The kennitala being queried.
-   * @return List of all {@link Booking} belonging to the passenger with the
-   *         specified kennitala.
-   */
-  public List<Booking> getBookingByKennitala(String kennitala) {
-  };
 
   /**
    * Gets all bookings from the database made by the passenger with the specified
@@ -134,4 +122,4 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     }
     ;
 
-}
+}}

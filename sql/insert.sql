@@ -1,9 +1,8 @@
 INSERT INTO Passengers (
   passengerId,
   name,
-  kennitala
 ) VALUES 
-    ('TH-0203040506', 'Tryggvi Hjálmarsson', '020290-5555');
+    ('TH-0203040506', 'Tryggvi Hjálmarsson');
 
 INSERT INTO Flights (
     flightNr,

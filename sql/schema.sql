@@ -5,8 +5,7 @@ DROP TABLE IF EXISTS Flights;
 
 CREATE TABLE Passengers (
     passengerId VARCHAR(15) PRIMARY KEY,
-    name VARCHAR(30),
-    kennitala VARCHAR(10)
+    name VARCHAR(30)
 );
 
 CREATE TABLE Flights (
