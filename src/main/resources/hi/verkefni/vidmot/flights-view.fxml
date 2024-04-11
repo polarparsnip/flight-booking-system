@@ -62,7 +62,7 @@
                                    promptText="Reykjavik" GridPane.rowIndex="2" />
                         <TextField fx:id="destinationPlace" promptText="City"
                                    GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <ComboBox fx:id="travellersComboBox" blendMode="DARKEN" prefWidth="150.0" promptText="1 traveller" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="travellerCount" blendMode="DARKEN" prefWidth="150.0" promptText="1 traveller" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
                 <Label fx:id="titleLabel" layoutX="210.0" layoutY="110.0" prefHeight="40.0" prefWidth="313.0" text="Book your flight now..." textAlignment="CENTER">
