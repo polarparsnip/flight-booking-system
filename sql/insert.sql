@@ -1,6 +1,6 @@
 INSERT INTO Passengers (
   passengerId,
-  name,
+  name
 ) VALUES 
     ('TH-0203040506', 'Tryggvi Hjálmarsson');
 
