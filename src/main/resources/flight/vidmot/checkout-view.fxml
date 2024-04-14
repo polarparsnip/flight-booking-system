@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.CheckoutController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="-14.0" layoutY="-14.0" prefHeight="500.0" prefWidth="650.0" stylesheets="@bookingDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <BorderPane layoutX="244.0" layoutY="115.0" prefHeight="500.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <left>
+                        <VBox prefHeight="443.0" prefWidth="57.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AnchorPane prefHeight="329.0" prefWidth="336.0">
+                                 <children>
+                                    <AnchorPane layoutX="174.0" layoutY="13.0" prefHeight="330.0" prefWidth="294.0">
+                                       <children>
+                                          <GridPane layoutX="2.0" layoutY="2.0" prefHeight="178.0" prefWidth="289.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.20001220703125" minWidth="10.0" prefWidth="129.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="161.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="fullNameCard" text="Fullt nafn:" />
+                                                <TextField fx:id="cardNumber" text="Kortanúmer:" GridPane.rowIndex="1" />
+                                                <TextField fx:id="cardExpiration" text="Loka dagsetning: " GridPane.rowIndex="2" />
+                                                <TextField fx:id="cardCSV" text="CSV:" GridPane.rowIndex="3" />
+                                                <TextField GridPane.columnIndex="1" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="discountCode" text="Afsláttarkóði:" GridPane.rowIndex="4" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                             </children>
+                                          </GridPane>
+                                          <Button fx:id="PaymentMethod" layoutX="95.0" layoutY="263.0" mnemonicParsing="false" onAction="#fxCreateBookingButton" prefHeight="49.0" prefWidth="108.0" text="Borga" />
+                                          <TextField fx:id="fxTotalPrice" blendMode="SCREEN" editable="false" layoutX="94.0" layoutY="209.0" prefHeight="25.0" prefWidth="110.0" promptText="Source" text="Heildarverð" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="fxBackButton" layoutX="16.0" layoutY="314.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" text="Tilbaka" />
+                                 </children>
+                              </AnchorPane>
+                           </children></VBox>
+                     </left>
+                     <top>
+                        <AnchorPane prefHeight="144.0" prefWidth="715.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="260.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                              <Text layoutX="141.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ganga frá greiðslu">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                  </BorderPane>
+               </children>
+               <styleClass>
+                  <String fx:value="bg-form" />
+                  <String fx:value="ft-card" />
+               </styleClass>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

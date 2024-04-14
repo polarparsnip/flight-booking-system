@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.SeatSelectionController">
+    <children>
+        <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane layoutX="-14.0" layoutY="-14.0" maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" stylesheets="@bookingDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <BorderPane layoutX="244.0" layoutY="115.0" maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <left>
+                                <VBox prefHeight="392.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
+                            </left>
+                            <center>
+                                <AnchorPane prefHeight="392.0" prefWidth="339.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Pane layoutX="-68.0" prefHeight="205.0" prefWidth="380.0" styleClass="ft-card" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="-68.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <TextField fx:id="fxDepartHourField" blendMode="SCREEN" editable="false" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <TextField fx:id="departReturnHour" blendMode="SCREEN" editable="false" layoutX="14.0" layoutY="80.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <TextField fx:id="destinationHourField" blendMode="SCREEN" editable="false" layoutX="253.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <TextField fx:id="destinationReturnHour" blendMode="SCREEN" editable="false" layoutX="253.0" layoutY="80.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <Line endX="54.0" layoutX="174.0" layoutY="38.0" startX="-21.0" />
+                                                <Line endX="54.0" layoutX="167.0" layoutY="92.0" startX="-21.0" />
+                                                <ChoiceBox fx:id="luggageDropBox" accessibleRole="CHECK_MENU_ITEM" accessibleText="Luggage " blendMode="DARKEN" layoutX="14.0" layoutY="129.0" prefWidth="150.0" />
+                                    <CheckBox fx:id="insuranceChecked" layoutX="253.0" layoutY="154.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ferðatrygging" />
+                                    <CheckBox fx:id="specialAssistanceChecked" layoutX="253.0" layoutY="116.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Auka aðstoð" />
+                                            </children>
+                                            <stylesheets>
+                                                <URL value="@flightDesign.css" />
+                                                <URL value="@bookingDesign.css" />
+                                            </stylesheets>
+                                        </Pane>
+                              <TextField fx:id="fxTotalCost" editable="false" layoutX="41.0" layoutY="221.0" promptText="Total Cost" text="Heildarkostnaður" />
+                                    </children>
+                                </AnchorPane>
+                            </center>
+                            <right>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="450.0" fitWidth="200.0" layoutY="-60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="24.0">
+                                 <image>
+                                    <Image url="@picture/seaSelectiom.jpg" />
+                                 </image>
+                              </ImageView>
+                              <GridPane fx:id="seatSelectionGrid" blendMode="MULTIPLY" layoutX="45.0" layoutY="71.0" prefHeight="240.0" prefWidth="109.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="8.80001220703125" prefWidth="19.80001220703125" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="9.400048828124993" prefWidth="19.8000244140625" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="1.5999023437500028" prefWidth="16.200048828125" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="10.0" prefWidth="20.999951171875004" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="10.0" prefWidth="29.99995880126953" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="63.19998779296875" minHeight="10.0" prefHeight="29.111104329427086" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="86.40001220703125" minHeight="10.0" prefHeight="38.44443766276042" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="74.60000000000001" minHeight="10.0" prefHeight="22.22222900390625" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="38.999999999999986" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="57.600012207031256" minHeight="10.0" prefHeight="26.333333333333343" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="52.400000000000006" minHeight="10.0" prefHeight="36.22222900390625" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="31.600012207031256" minHeight="10.0" prefHeight="26.33331298828125" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button id="1A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="1" />
+                                    <Button id="1B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button id="1C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Button id="1D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <Button id="2A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="2" />
+                                    <Button id="2B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button id="2C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Button id="2D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Button id="3A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="3" />
+                                    <Button id="3B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Button id="3C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Button id="3D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <Button id="4A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="4" />
+                                    <Button id="4B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Button id="4C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <Button id="4D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                    <Button id="5A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="5" />
+                                    <Button id="5B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Button id="5C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                    <Button id="5D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                    <Button id="6A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="6" />
+                                    <Button id="6B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Button id="6C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                    <Button id="6D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                                 </children>
+                              </GridPane>
+                           </children></AnchorPane>
+                            </right>
+                            <top>
+                                <AnchorPane prefHeight="144.0" prefWidth="715.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <TextField fx:id="fxDeparture" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Source" text="Brottfarastaður" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
+                                        <TextField fx:id="fxDestination" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Desstination" text="Áfangastaður" AnchorPane.topAnchor="60.0" />
+                                        <TextField fx:id="fxNumTraveler" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="88.0" promptText="Travelers" />
+                                        <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Depart Date" text="Brottför Dagsetning" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="100.0" />
+                                        <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival Date" text="Koma Dagsetning" AnchorPane.topAnchor="100.0" />
+                              <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                                    </children>
+                                </AnchorPane>
+                            </top>
+                     <bottom>
+                        <Pane prefHeight="76.0" prefWidth="753.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="confirmButton" layoutX="307.0" layoutY="26.0" mnemonicParsing="false" onAction="#fxConfirmSeatSelectionButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Staðfesta" />
+                              <Button fx:id="fxBackButton" layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Tilbaka" />
+                           </children>
+                        </Pane>
+                     </bottom>
+                        </BorderPane>
+                    </children>
+                    <styleClass>
+                        <String fx:value="bg-form" />
+                        <String fx:value="ft-card" />
+                    </styleClass>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,10 +1,11 @@
+DROP TABLE IF EXISTS BookedSeats;
 DROP TABLE IF EXISTS Bookings;
-DROP TABLE IF EXISTS Passengers;
+DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Seats;
 DROP TABLE IF EXISTS Flights;
 
-CREATE TABLE Passengers (
-    passengerId VARCHAR(15) PRIMARY KEY,
+CREATE TABLE Users (
+    userId VARCHAR(15) PRIMARY KEY,
     name VARCHAR(30)
 );
 
@@ -12,14 +13,16 @@ CREATE TABLE Flights (
     flightNr VARCHAR(5) PRIMARY KEY,
     departureAddress VARCHAR(55),
     arrivalAddress VARCHAR(55),
-    departureTime VARCHAR(20),
-    arrivalTime VARCHAR(20),
+    departureDate VARCHAR(20),
+    departureTime TIME,
+    arrivalDate VARCHAR(20),
+    arrivalTime TIME,
     price INT,
-    amenities BOOLEAN
+    amenities BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE Bookings (
-    purchaserId VARCHAR(30) REFERENCES Passengers(passengerId) ON DELETE CASCADE,
+    purchaserId VARCHAR(30) REFERENCES Users(userId) ON DELETE CASCADE,
     bookingId VARCHAR(15),
     flightNr VARCHAR(30) REFERENCES Flights(flightNr) ON DELETE CASCADE,
     bookingDate DATE,
@@ -34,8 +37,8 @@ CREATE TABLE Seats (
 );
 
 CREATE TABLE BookedSeats (
-    bookingId VARCHAR(15) REFERENCES Bookings(bookingId),
-    bookingPassengerId VARCHAR(15) REFERENCES Passengers(passengerId),
-    bookedSeatNumber VARCHAR(3) REFERENCES Seats(seatNumber),
-    PRIMARY KEY (bookingId, bookingPassengerId, bookedSeatNumber)
+    bookingFlightNr VARCHAR(30) REFERENCES Flights(flightNr) ON DELETE CASCADE,
+    bookedSeatNumber VARCHAR(3) REFERENCES Seats(seatNumber) ON DELETE CASCADE,
+    bookingId VARCHAR(15) REFERENCES Bookings(bookingId) ON DELETE CASCADE,
+    PRIMARY KEY (bookingFlightNr, bookedSeatNumber)
 );

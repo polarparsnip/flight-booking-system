@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" styleClass="bg-form" stylesheets="@loginDesign.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.SelectFlightController">
+    <children>
+        <AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane fx:id="flightsGridPane" layoutX="12.0" layoutY="221.0" prefHeight="92.0" prefWidth="626.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="25.60001220703125" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.8" minHeight="10.0" prefHeight="50.40000610351562" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="44.79999389648437" minHeight="10.0" prefHeight="40.79999389648437" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="fromLabel" text="Brottfarastaður" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="toLabel" text="Áfangastaður" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="departPosition" text="Brottför" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="returnLabel" text="Heimkoma" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="travelersLabel" text="Földi" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <DatePicker fx:id="fxDepartDate" blendMode="MULTIPLY" promptText="Dagsetning" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <DatePicker fx:id="fxReturnDate" blendMode="MULTIPLY" promptText="Dagsetning" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="fxTravelerCount" blendMode="DARKEN" prefWidth="150.0" promptText="Veldu fjölda" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="fxDepartPlace" blendMode="DARKEN" prefWidth="150.0" promptText="Veldu stað" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="fxDestinationPlace" blendMode="DARKEN" prefWidth="150.0" promptText="Veldu stað" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    </children>
+                </GridPane>
+                <Label fx:id="titleLabel" layoutX="168.0" layoutY="104.0" prefHeight="40.0" prefWidth="300.0" text="Bókaðu þitt flug núna..." textAlignment="CENTER" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="168.39999999999998">
+                    <font>
+                        <Font name="System Bold Italic" size="28.0" />
+                    </font>
+                </Label>
+                <Button fx:id="fxSearchButton" layoutX="275.0" layoutY="344.0" mnemonicParsing="false" onAction="#fxSearchButtonHandler" prefHeight="30.0" prefWidth="100.0" text="Leita að flugi" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" />
+            <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="31.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="fxError" blendMode="DARKEN" editable="false" layoutX="155.0" layoutY="163.0" prefHeight="30.0" prefWidth="340.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.39999999999998">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></TextField>
+            <Button fx:id="fxBackButton" layoutX="26.0" layoutY="451.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="119.0" text="Tilbaka" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
+            </children>
+            <stylesheets>
+                <URL value="@flightDesign.css" />
+                <URL value="@flightDesign.css" />
+                <URL value="@bookingDesign.css" />
+            </stylesheets>
+        </AnchorPane>
+    </children>
+</AnchorPane>

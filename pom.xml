@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hi.verkefni</groupId>
+    <groupId>flight</groupId>
     <artifactId>flight-booking-system</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>flight-booking-system</name>
@@ -48,12 +48,6 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.45.2.0</version>
         </dependency>
-    
-      <dependency>
-        <groupId>it.unibo.tuprolog</groupId>
-        <artifactId>ide</artifactId>
-        <version>1.0.0</version>
-      </dependency>
     </dependencies>
 
     <build>
@@ -76,7 +70,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>hi.verkefni.vidmot.flight_booking_system/hi.verkefni.vidmot.HelloApplication
+                            <mainClass>flight.vidmot.flight_booking_system/flight.vidmot.FlightApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

@@ -206,7 +206,7 @@ INSERT INTO Seats (
     seatNumber,
     reserved
 ) VALUES 
-  ('F-001', '1A', 'FALSE'),
+  ('F-001', '1A', 'TRUE'),
 ('F-001', '1B', 'FALSE'),
 ('F-001', '1C', 'FALSE'),
 ('F-001', '1D', 'FALSE'),
