@@ -71,6 +71,20 @@ public interface FlightControllerInterface {
 
 
   /**
+   * Searches for flights in the database based on a specified leg and departure date.
+   *
+   * @param depAddress The departure address of the leg.
+   * @param arrAddress The arrival address of the leg.
+   * @param depDate The departure date of the queried leg.
+   * @param priceLower The lower bound of the price range being queried.
+   * @param priceUpper The upper bound of the price range being queried.
+   * @return List of {@link Flight} flying the specified leg on the specified 
+   * date withing the specified price range.
+   */
+  public List<Flight> searchFlightsByDepArrPriceRange(String depAddress, String arrAddress, LocalDate depDate, int priceLower, int priceUpper);
+
+
+  /**
    * Gets all flights from the service layer sorted by price.
    * 
    * @return List of {@link Flight} sorted by price.

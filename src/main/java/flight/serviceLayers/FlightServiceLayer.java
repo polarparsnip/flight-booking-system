@@ -20,12 +20,6 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
   private final String databasePath = "sql/flightBookingSystem.db"; 
 
 
-  /**
-   * Constructor for the booking service layer.
-   */
-  public FlightServiceLayer() {
-  }
-
   public ArrayList<Flight> search(String flightsQuery) {
 
     Flight returnFlight = null;
@@ -249,9 +243,9 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
     String flightsQuery = "SELECT * from Flights WHERE departureAddress = '" + depAddress + "' AND arrivalAddress = '" + arrAddress + 
       "' AND departureDate = '" + depDate + "' AND WHERE price >= " + String.valueOf(priceLower) + " AND price <= " + String.valueOf(priceUpper) + ";";
 
-      ArrayList<Flight> flightReturn = search(flightsQuery);
+    ArrayList<Flight> flightReturn = search(flightsQuery);
 
-      return flightReturn;
+    return flightReturn;
   };
 
 
