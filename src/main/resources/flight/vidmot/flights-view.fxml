@@ -58,9 +58,9 @@
                         </Label>
                         <DatePicker fx:id="fxDepartDate" blendMode="MULTIPLY" promptText="Dagsetning" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <DatePicker fx:id="fxReturnDate" blendMode="MULTIPLY" promptText="Dagsetning" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <ComboBox fx:id="fxTravelerCount" blendMode="DARKEN" prefWidth="150.0" promptText="Veldu fjölda" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="fxDepartPlace" blendMode="DARKEN" prefWidth="150.0" promptText="Veldu stað" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="fxDestinationPlace" blendMode="DARKEN" prefWidth="150.0" promptText="Veldu stað" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="fxTravelerCount" blendMode="COLOR_BURN" prefWidth="150.0" promptText="Veldu fjölda" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="fxDepartPlace" blendMode="COLOR_BURN" prefWidth="150.0" promptText="Veldu stað" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="fxDestinationPlace" blendMode="COLOR_BURN" prefWidth="150.0" promptText="Veldu stað" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
                 <Label fx:id="titleLabel" layoutX="168.0" layoutY="104.0" prefHeight="40.0" prefWidth="300.0" text="Bókaðu þitt flug núna..." textAlignment="CENTER" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="168.39999999999998">
@@ -80,7 +80,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></TextField>
-            <Button fx:id="fxBackButton" layoutX="26.0" layoutY="451.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="119.0" text="Til baka" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
+            <Button fx:id="fxBackButton" layoutX="26.0" layoutY="451.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="30.0" prefWidth="100.0" text="Til baka" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
             </children>
             <stylesheets>
                 <URL value="@flightDesign.css" />
