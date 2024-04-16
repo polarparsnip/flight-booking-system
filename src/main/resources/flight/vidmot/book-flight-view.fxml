@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.BookFlightController">
    <children>
@@ -27,14 +28,19 @@
                      <children>
                         <Pane layoutX="98.0" layoutY="21.0" prefHeight="274.0" prefWidth="340.0" styleClass="ft-card">
                            <children>
-                              <TextField fx:id="fxDepartureHourField" blendMode="SCREEN" editable="false" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
-                              <TextField fx:id="fxArrivalHourField" blendMode="SCREEN" editable="false" layoutX="221.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
+                              <TextField fx:id="fxDepartureHourField" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
+                              <TextField fx:id="fxArrivalHourField" blendMode="COLOR_BURN" editable="false" layoutX="221.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
                               <Line endX="54.0" layoutX="151.0" layoutY="38.0" startX="-21.0" />
-                              <ScrollPane layoutX="6.0" layoutY="121.0" prefHeight="139.0" prefWidth="335.0">
+                              <ScrollPane layoutX="3.0" layoutY="76.0" prefHeight="102.0" prefWidth="335.0">
                                  <content>
-                                    <ListView fx:id="fxFlightList" prefHeight="145.0" prefWidth="335.0" />
+                                    <ListView fx:id="fxFlightList" prefHeight="94.0" prefWidth="335.0" />
                                  </content>
                               </ScrollPane>
+                              <TextField fx:id="fxFlightCost" alignment="CENTER" blendMode="MULTIPLY" editable="false" layoutX="71.0" layoutY="210.0" prefHeight="30.0" promptText="Verð á flugi" text="Verð á flugi">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </TextField>
                            </children>
                            <stylesheets>
                               <URL value="@flightDesign.css" />
@@ -57,11 +63,13 @@
                      <children>
                         <TextField fx:id="fxDeparture" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="54.0" prefHeight="26.0" prefWidth="161.0" promptText="Source" text="Brottfarastaður" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="464.0" AnchorPane.topAnchor="60.0" />
                         <TextField fx:id="fxDestination" blendMode="COLOR_BURN" editable="false" layoutX="466.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Desstination" text="Áfangastaður" AnchorPane.leftAnchor="466.0" AnchorPane.topAnchor="60.0" />
-                        <TextField fx:id="fxNumTraveler" blendMode="DARKEN" editable="false" layoutX="250.0" layoutY="73.0" promptText="Travelers" />
+                        <TextField fx:id="fxNumTraveler" alignment="CENTER" blendMode="COLOR_BURN" editable="false" layoutX="250.0" layoutY="73.0" promptText="Travelers" />
                         <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="26.0" layoutY="97.0" prefHeight="26.0" prefWidth="159.0" promptText=" Depart date" text="Brottför Dagsetning" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="465.0" AnchorPane.topAnchor="100.0" />
                         <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="466.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival date" text="Koma Dagsetning" AnchorPane.leftAnchor="466.0" AnchorPane.topAnchor="100.0" />
-                        <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0" />
-                        <TextField fx:id="fxFlightCost" alignment="CENTER" editable="false" layoutX="250.0" layoutY="97.0" prefHeight="30.0" promptText="Verð á flugi" text="Verð á flugi" />
+                        <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></TextField>
                      </children>
                   </AnchorPane>
                </top>
