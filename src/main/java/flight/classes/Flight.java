@@ -50,7 +50,7 @@ public class Flight {
     
     this.flightNr = flightNr;
     this.seats = seats;
-    seatsReserved = 0;
+    this.seatsReserved = 0;
     
     for (int i = 0;i < seats.size();i++) {
       if (seats.get(i).getReservationStatus() == true) {
@@ -160,6 +160,9 @@ public class Flight {
         break;
       }
     }
+
+    seatsReserved++;
+    seatsAvailable = seats.size() - seatsReserved;
   }
 
 
@@ -175,6 +178,9 @@ public class Flight {
         break;
       }
     }
+    
+    seatsReserved--;
+    seatsAvailable = seats.size() - seatsReserved;
   }
 
 

@@ -4,8 +4,8 @@
 <?import javafx.scene.control.ButtonType?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -14,7 +14,7 @@
     <content>
         <VBox alignment="CENTER" layoutX="14.0" layoutY="15.0" maxHeight="350.0" maxWidth="500.0" minWidth="500.0" prefHeight="350.0" prefWidth="500.0" spacing="15.0" styleClass="bg-form" stylesheets="@loginDesign.css">
             <children>
-                <Label style="-fx-text-fill: #ffffff;" text="Skráðu nafn og lykilorð">
+                <Label style="-fx-text-fill: #ffffff;" text="Skráðu nafn, kennitölu, og lykilorð">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
@@ -43,14 +43,14 @@
                 </HBox>
                 <HBox layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="302.0">
                     <children>
-                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="80.0" prefHeight="45.0" prefWidth="80.0" style="-fx-text-fill: #ffffff;" text="Lykilorð:" HBox.hgrow="NEVER">
+                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="80.0" prefHeight="45.0" prefWidth="80.0" style="-fx-text-fill: #ffffff;" text="Kennitala:" HBox.hgrow="NEVER">
                             <HBox.margin>
                                 <Insets top="15.0" />
                             </HBox.margin>
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                        <PasswordField fx:id="fxPassword" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0" promptText="Skrifaðu lykilorð" HBox.hgrow="NEVER">
+                        <PasswordField fx:id="fxUserId" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0" promptText="Skrifaðu kennitölu" HBox.hgrow="NEVER">
                             <HBox.margin>
                                 <Insets top="15.0" />
                             </HBox.margin>
@@ -63,6 +63,26 @@
                   <Insets left="50.0" />
                </VBox.margin>
                 </HBox>
+            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="302.0">
+               <children>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="80.0" prefHeight="45.0" prefWidth="78.0" style="-fx-text-fill: #ffffff;" text="Lykilorð:" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets left="50.0" top="28.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="fxPassword" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0" promptText="Skrifaðu lykilorð" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets top="28.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </HBox>
             </children>
         </VBox>
     </content>

@@ -10,10 +10,21 @@ public class UserServiceLayer {
 
     private final String databasePath = "sql/flightBookingSystem.db"; 
 
-    /**
-    * Constructor for the user service layer.
-    */
-    public UserServiceLayer() {
+    
+    public void createUser(User user) {
+      Database db = new Database(databasePath);
+      db.open();
+
+      String query = "INSERT OR IGNORE INTO Users (userId, name) VALUES (?, ?);";
+      String[] values = {user.getId(), user.getName()};
+
+      db.query(
+        query, 
+        values,
+        false
+      );
+
+      db.close();
     }
 
     public User searchUserById(String userId) {
@@ -35,6 +46,8 @@ public class UserServiceLayer {
         System.err.println("Error searching for user: " + e);
         System.err.println(e.getErrorCode());
       }
+
+      db.close();
     
       return p;
     };

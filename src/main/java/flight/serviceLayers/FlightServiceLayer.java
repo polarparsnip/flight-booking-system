@@ -27,6 +27,8 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
     Database db = new Database(databasePath);
     db.open();
 
+    db.beginTransaction();
+
     try {
       ResultSet flightRS = db.query(flightsQuery, null, true);
 
@@ -79,6 +81,8 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
       System.err.println(e.getErrorCode());
     }
 
+    db.endTransaction();
+
     db.close();
 
     return flightList;
@@ -101,7 +105,7 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
     Database db = new Database(databasePath);
     db.open();
 
-      
+    db.beginTransaction();
 
     try {
       ResultSet flightRS = db.query(flightsQuery, null, true);
@@ -141,9 +145,12 @@ public class FlightServiceLayer implements FlightServiceLayerInterface {
     } catch(Exception e) {
       System.err.println("Error searching for flights: " + e);
     }
-    db.close();
-    return returnFlight;
 
+    db.endTransaction();
+
+    db.close();
+    
+    return returnFlight;
   };
 
 

@@ -62,6 +62,53 @@ public class Database {
         return connection != null;
     }
 
+
+    /**
+     * Begins a new transaction by disabling auto-commit mode on the database connection. 
+     * All subsequent SQL statements will be grouped together as part of the same transaction
+     * until {@link #endTransaction()} is called.
+     */
+    public void beginTransaction() {
+        try {
+            connection.setAutoCommit(false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Commits the current transaction, making any changes made within the transaction permanent 
+     * in the database. This method also re-enables auto-commit mode on the database connection, 
+     * so subsequent SQL statements will be executed as separate transactions unless another 
+     * transaction is explicitly started.
+     */
+    public void endTransaction() {
+        try {
+            connection.commit();
+            connection.setAutoCommit(true);
+        } catch (SQLException e) {
+            rollback();
+            e.printStackTrace();
+        }
+    }
+
+        
+    /**
+     * Rolls back the current transaction, undoing any changes made within the transaction.
+     * This method re-enables auto-commit mode on the database connection after the rollback.
+     * If a transaction is rolled back, any changes made within the transaction are discarded,
+     * and the database is restored to its state before the transaction began.
+     */
+    public void rollback() {
+        try {
+            connection.rollback(); // Roll back the transaction
+            connection.setAutoCommit(true); // Re-enable auto-commit mode
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * Executes a SQL query on the database with optional parameters.
      * 

@@ -26,13 +26,10 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
 
     private final String databasePath = "sql/flightBookingSystem.db";
     
-
     private final ArrayList<Booking> bookings = new ArrayList<>();
 
 
-
-
-    /**
+   /**
    * Creates a booking entry in the database based on a {@link Booking} object.
    * 
    * @param booking The {@link Booking} to be inserted in the database.
@@ -40,6 +37,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     public void createBooking(Booking booking) {
         Database db = new Database(databasePath);
         db.open();
+
+        db.beginTransaction();
     
         String[] UserValues = { booking.getBookingPurchaser().getId(), booking.getBookingPurchaser().getName() };
         
@@ -58,7 +57,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         };
     
         db.query(
-            "insert into Bookings (userId, bookingId, flightNr, bookingDate, insured) values (?, ?, ?, ?, ?)",
+            "insert into Bookings (purchaserId, bookingId, flightNr, bookingDate, insured) values (?, ?, ?, ?, ?)",
             BookingValues, 
             false
         );
@@ -81,6 +80,10 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 );
             }
         }
+
+        db.endTransaction();
+
+        db.close();
     }
 
 
@@ -92,6 +95,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     public void updateBooking(Booking booking) {
         Database db = new Database(databasePath);
         db.open();
+
+        db.beginTransaction();
 
         String[] bookingIdValue = { booking.getBookingId() };
         
@@ -106,7 +111,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         };
         
         db.query(
-            "UPDATE Bookings SET userId = ?, flightNr = ?, bookingDate = ?, insured = ? WHERE bookingId = ?",
+            "UPDATE Bookings SET purchaserId = ?, flightNr = ?, bookingDate = ?, insured = ? WHERE bookingId = ?",
             bookingValues, 
             false
         );
@@ -149,6 +154,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
             }
         }
 
+        db.endTransaction();
+
         db.close();
     }
 
@@ -161,6 +168,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     public Booking getBookingById(String bookingId) {
         Database db = new Database(databasePath);
         db.open();
+
+        db.beginTransaction();
 
         Booking booking = null;
         
@@ -249,6 +258,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            db.endTransaction();
             db.close();
         }
 
@@ -266,6 +276,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     public List<Booking> getBookingsByUserId(String id) {
         Database db = new Database(databasePath);
         db.open();
+
+        db.beginTransaction();
 
         List<Booking> bookings = new ArrayList<Booking>();
         
@@ -311,7 +323,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                     }
 
                     ResultSet FlightRs = db.query(
-                        "SELECT * FROM Flights WHERE flightNr = ?)",
+                        "SELECT * FROM Flights WHERE flightNr = ?",
                         bookingFlightNr, 
                         true
                     );
@@ -365,6 +377,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            db.endTransaction();
             db.close();
         }
         return bookings;
@@ -380,6 +393,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
     public List<Booking> getAllBookings() {
         Database db = new Database(databasePath);
         db.open();
+
+        db.beginTransaction();
 
         List<Booking> bookings = new ArrayList<Booking>();
 
@@ -464,6 +479,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            db.endTransaction();
             db.close();
         }
         return bookings;
@@ -479,6 +495,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
         Database db = new Database(databasePath);
         db.open();
 
+        db.beginTransaction();
+
         String[] bookingId = { booking.getBookingId() };
 
         for (Seat seat : booking.getSeatsInBooking()) {
@@ -489,10 +507,14 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
             }
 
             db.query("DELETE FROM BookedSeats WHERE bookingFlightNr = ? AND bookedSeatNumber = ?", bookedSeatsValues, false);
-            db.query("DELETE FROM Bookings WHERE bookingId = ?", bookingId, false);            
-
-            db.close();
         }
+
+        db.query("DELETE FROM Bookings WHERE bookingId = ?", bookingId, false);            
+
+
+        db.endTransaction();
+            
+        db.close();
     
     }
     

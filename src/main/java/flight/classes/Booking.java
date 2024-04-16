@@ -1,6 +1,7 @@
 package flight.classes;
 
 import java.util.List;
+import java.util.Random;
 import java.time.LocalDate;
 
 public class Booking {
@@ -32,7 +33,10 @@ public class Booking {
     this.bookingDate = bookingDate;
     this.seats = seats;
 
-    this.bookingId = String.format("BKNG%s-%s-%s", flight.getFlightNr(), purchaser.getId(), bookingDate.toString());
+    Random rand = new Random();
+    int randomNr = rand.nextInt(100000000);
+
+    this.bookingId = String.format("BKNG%s-%s-%08d", flight.getFlightNr(), purchaser.getId(), randomNr);
 
   }
 
@@ -160,14 +164,16 @@ public class Booking {
   public String toString() {
     StringBuilder sb = new StringBuilder();
 
-    sb.append("Bókunar Auðkenni: ").append(bookingId).append("\n");
-    sb.append("Kaupandi: ").append(purchaser.getName()).append("\n");
-    sb.append("Flugnúmer: ").append(flight.getFlightNr()).append("\n");
+    // sb.append("Bókunarnúmer: ").append(bookingId).append("\n");
+    sb.append(bookingId).append("\n");
+
+    // sb.append("Kaupandi: ").append(purchaser.getName()).append("\n");
+    // sb.append("Flugnúmer: ").append(flight.getFlightNr()).append("\n");
     sb.append("Dagsetning bókunar: ").append(bookingDate).append("\n");
     sb.append("Fjöldi sæta í bókun: ").append(seats.size()).append("\n");
 
-    String insuredStatusString = insured ? "Já" : "nei";
-    sb.append("Flugtrygging: ").append(insuredStatusString).append("\n");
+    // String insuredStatusString = insured ? "Já" : "nei";
+    // sb.append("Flugtrygging: ").append(insuredStatusString).append("\n");
 
     return sb.toString();
   }
