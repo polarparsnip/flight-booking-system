@@ -10,7 +10,6 @@ python setup.py
 mvn clean javafx:run
 ```
 
-
 **Til að keyra junit tests**
 
 ```bash
