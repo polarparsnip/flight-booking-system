@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.HomepageController">
+   <children>
+      <AnchorPane minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="650.0" styleClass="bg-form" stylesheets="@loginDesign.css">
+         <children>
+            <AnchorPane layoutX="145.0" layoutY="50.0" prefHeight="400.0" prefWidth="450.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Button fx:id="userAreaButton" layoutX="250.0" layoutY="234.0" mnemonicParsing="false" onAction="#fxUserArea" prefHeight="35.0" prefWidth="100.0" text="Notendasvæði" AnchorPane.rightAnchor="100.39999999999998" />
+                  <Button fx:id="flightAreaButton" layoutX="102.0" layoutY="234.0" mnemonicParsing="false" onAction="#fxFlightArea" prefHeight="35.0" prefWidth="100.0" text="Flug" AnchorPane.leftAnchor="102.0" />
+                  <ImageView fitHeight="194.0" fitWidth="241.0" layoutX="134.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@picture/circle.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="54.0" fitWidth="63.0" layoutX="203.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@picture/orange.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="374.0" layoutY="24.0" prefHeight="31.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></TextField>
+            <Button fx:id="fxLogoutButton" layoutX="25.0" layoutY="447.0" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#fxLogoutButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Skrá út" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
