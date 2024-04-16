@@ -79,7 +79,7 @@ public class BookFlightController {
 
     public void setNumTravelers(int numTravelers) {
         this.numTravelers = numTravelers;
-        this.fxNumTraveler.setText(Integer.toString(numTravelers));
+        this.fxNumTraveler.setText("Fjöldi farþega: " + Integer.toString(numTravelers));
     }
 
 
@@ -122,7 +122,6 @@ public class BookFlightController {
             if (newValue != null) {
                 fxDepartureHourField.setText(newValue.getDepartureTime().toString());
                 fxArrivalHourField.setText(newValue.getArrivalTime().toString());
-                fxNumTraveler.setText("Fjöldi farþega: " + Integer.toString(numTravelers));
                 fxFlightCost.setText(Integer.toString(newValue.getPrice()) + " kr");
                 selectedFlight = newValue;
             }
@@ -180,6 +179,8 @@ public class BookFlightController {
             ssc.setArrivalTime(selectedFlight.getArrivalTime());
 
             ssc.setSelectedFlight(selectedFlight);
+
+            ssc.resetSeats();
             
         } else {
             System.out.println("Fix");    

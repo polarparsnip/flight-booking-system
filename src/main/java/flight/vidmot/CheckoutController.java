@@ -19,6 +19,9 @@ public class CheckoutController {
     @FXML
     private TextField fxLoggedIn;
 
+    @FXML
+    private TextField fxTotalPrice;
+
 
     private User purchaser;
 
@@ -28,9 +31,13 @@ public class CheckoutController {
 
     private List<String> departingSeats;
 
+    private int departingFlightPrice;
+
     private Flight returningFlight = null;
 
     private List<String> returningSeats = null;
+
+    private int returningFlightPrice;
 
     private boolean departingInsured = false;
     private boolean returningInsured = false;
@@ -81,8 +88,19 @@ public class CheckoutController {
     }
 
 
+    public void setDepartingPrice(int departingFlightPrice) {
+        this.departingFlightPrice = departingFlightPrice;
+        fxTotalPrice.setText(Integer.toString(departingFlightPrice) + " kr");
+    }
+
+
+    public void setReturningPrice(int returningFlightPrice) {
+        this.returningFlightPrice = returningFlightPrice;
+        fxTotalPrice.setText(Integer.toString(departingFlightPrice + returningFlightPrice) + " kr");
+    }
+
     @FXML
-    public void fxBackButtonHandler(ActionEvent event) {
+    private void fxBackButtonHandler(ActionEvent event) {
         if (ViewSwitcher.lookup(View.RETURNSEATSELECTION) != null) {
             ViewSwitcher.switchTo(View.RETURNSEATSELECTION);            
 
@@ -139,5 +157,6 @@ public class CheckoutController {
         ViewSwitcher.switchTo(View.CHECKOUTDONE);
         CheckoutDoneController cdc = (CheckoutDoneController) ViewSwitcher.lookup(View.CHECKOUTDONE);
         cdc.setBookingNumber(bookingId);
+        cdc.setPurchaser(purchaser);
     }
 }

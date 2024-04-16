@@ -28,7 +28,7 @@
             </Label>
             <TextField fx:id="fxBookingNumber" layoutX="64.0" layoutY="326.0" prefHeight="49.0" prefWidth="511.0" text="Bókunarnúmer">
                <font>
-                  <Font name="System Bold Italic" size="18.0" />
+                  <Font name="System Bold Italic" size="12.0" />
                </font>
             </TextField>
             </children>

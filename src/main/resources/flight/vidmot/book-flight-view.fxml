@@ -19,7 +19,7 @@
                <left>
                   <Pane prefHeight="374.0" prefWidth="125.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="fxBackButton" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="30.0" prefWidth="100.0" text="Tilbaka" />
+                        <Button fx:id="fxBackButton" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="30.0" prefWidth="100.0" text="Til baka" />
                      </children></Pane>
                </left>
                <center>
@@ -27,8 +27,8 @@
                      <children>
                         <Pane layoutX="98.0" layoutY="21.0" prefHeight="274.0" prefWidth="340.0" styleClass="ft-card">
                            <children>
-                              <TextField fx:id="fxDepartureHourField" editable="false" blendMode="SCREEN" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
-                              <TextField fx:id="fxArrivalHourField" editable="false" blendMode="SCREEN" layoutX="221.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
+                              <TextField fx:id="fxDepartureHourField" blendMode="SCREEN" editable="false" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
+                              <TextField fx:id="fxArrivalHourField" blendMode="SCREEN" editable="false" layoutX="221.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
                               <Line endX="54.0" layoutX="151.0" layoutY="38.0" startX="-21.0" />
                               <ScrollPane layoutX="6.0" layoutY="121.0" prefHeight="139.0" prefWidth="335.0">
                                  <content>
@@ -41,7 +41,6 @@
                               <URL value="@bookingDesign.css" />
                            </stylesheets>
                         </Pane>
-                        <TextField fx:id="fxFlightCost" alignment="CENTER" editable="false" layoutX="193.0" layoutY="329.0" prefHeight="30.0" promptText="flight cost" text="Flugkostnaður" />
                      </children>
                   </AnchorPane>
                </center>
@@ -62,6 +61,7 @@
                         <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="26.0" layoutY="97.0" prefHeight="26.0" prefWidth="159.0" promptText=" Depart date" text="Brottför Dagsetning" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="465.0" AnchorPane.topAnchor="100.0" />
                         <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="466.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival date" text="Koma Dagsetning" AnchorPane.leftAnchor="466.0" AnchorPane.topAnchor="100.0" />
                         <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                        <TextField fx:id="fxFlightCost" alignment="CENTER" editable="false" layoutX="250.0" layoutY="97.0" prefHeight="30.0" promptText="Verð á flugi" text="Verð á flugi" />
                      </children>
                   </AnchorPane>
                </top>

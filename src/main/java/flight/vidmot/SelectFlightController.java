@@ -132,7 +132,7 @@ public class SelectFlightController {
 
     public void initialize() {
         places.add("Akureyri");
-        places.add("Egilstaðir");
+        places.add("Egilsstaðir");
         places.add("Ísafjörður");
         places.add("Reykjavík");
         places.add("Vestmannaeyjar");

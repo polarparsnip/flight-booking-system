@@ -39,23 +39,23 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <TextField fx:id="fullNameCard" text="Fullt nafn:" />
-                                                <TextField fx:id="cardNumber" text="Kortanúmer:" GridPane.rowIndex="1" />
-                                                <TextField fx:id="cardExpiration" text="Loka dagsetning: " GridPane.rowIndex="2" />
-                                                <TextField fx:id="cardCSV" text="CSV:" GridPane.rowIndex="3" />
+                                                <TextField fx:id="fullNameCard" editable="false" text="Fullt nafn:" />
+                                                <TextField fx:id="cardNumber" editable="false" text="Kortanúmer:" GridPane.rowIndex="1" />
+                                                <TextField fx:id="cardExpiration" editable="false" text="Loka dagsetning: " GridPane.rowIndex="2" />
+                                                <TextField fx:id="cardCSV" editable="false" text="CSV:" GridPane.rowIndex="3" />
                                                 <TextField GridPane.columnIndex="1" />
                                                 <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                 <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                 <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                <TextField fx:id="discountCode" text="Afsláttarkóði:" GridPane.rowIndex="4" />
+                                                <TextField fx:id="discountCode" editable="false" text="Afsláttarkóði:" GridPane.rowIndex="4" />
                                                 <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                              </children>
                                           </GridPane>
                                           <Button fx:id="PaymentMethod" layoutX="95.0" layoutY="263.0" mnemonicParsing="false" onAction="#fxCreateBookingButton" prefHeight="49.0" prefWidth="108.0" text="Borga" />
-                                          <TextField fx:id="fxTotalPrice" blendMode="SCREEN" editable="false" layoutX="94.0" layoutY="209.0" prefHeight="25.0" prefWidth="110.0" promptText="Source" text="Heildarverð" />
+                                          <TextField fx:id="fxTotalPrice" editable="false" layoutX="94.0" layoutY="209.0" prefHeight="25.0" prefWidth="110.0" promptText="Source" text="Heildarverð" />
                                        </children>
                                     </AnchorPane>
-                                    <Button fx:id="fxBackButton" layoutX="16.0" layoutY="314.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" text="Tilbaka" />
+                                    <Button fx:id="fxBackButton" layoutX="16.0" layoutY="314.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" text="Til baka" />
                                  </children>
                               </AnchorPane>
                            </children></VBox>

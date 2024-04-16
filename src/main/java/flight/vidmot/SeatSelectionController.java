@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -49,6 +50,9 @@ public class SeatSelectionController {
 
     @FXML
     private CheckBox insuranceChecked;
+
+    @FXML
+    private ChoiceBox<String> fxLuggageDropBox;
 
     private Flight selectedFlight;
 
@@ -133,8 +137,13 @@ public class SeatSelectionController {
     public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
-
+   
     
+    public void resetSeats() {
+        this.selectedSeats.clear();
+    }
+
+
     public void setSelectedFlight(Flight selectedFlight) {
         this.selectedFlight = selectedFlight;
 
@@ -165,6 +174,9 @@ public class SeatSelectionController {
 
             }
         }
+
+        fxLuggageDropBox.getItems().addAll("Auka farangur", "Engin auka farangur");
+        fxLuggageDropBox.setValue("Auka farangur");
     }
 
 
@@ -243,6 +255,7 @@ public class SeatSelectionController {
             cc.setDepartingSeats(selectedSeats);
             cc.setDepartingInsured(insurance);
             cc.setPurchaser(purchaser);
+            cc.setDepartingPrice(numTravelers * selectedFlight.getPrice());
                
         } else {
             System.out.println("PLease select seats before continuing");    

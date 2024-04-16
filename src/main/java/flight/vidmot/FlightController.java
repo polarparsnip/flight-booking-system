@@ -21,8 +21,7 @@ public class FlightController implements FlightControllerInterface {
    * Constructor for the flight controller
    *
    * @param BSL The {@link FlightServiceLayer} that the flight controller
-   *            will use
-   * to manage flights in the system.
+   * will use to manage flights in the system.
    */
   public FlightController(FlightServiceLayerInterface FSL) {
     this.FSL = FSL;

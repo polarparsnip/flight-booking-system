@@ -73,14 +73,14 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></TextField>
-            <TextField fx:id="fxError" blendMode="DARKEN" editable="false" layoutX="155.0" layoutY="163.0" prefHeight="30.0" prefWidth="340.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="155.39999999999998">
+            <TextField fx:id="fxError" blendMode="DARKEN" editable="false" layoutX="11.0" layoutY="163.0" prefHeight="30.0" prefWidth="626.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="13.0">
                <font>
-                  <Font name="System Italic" size="15.0" />
+                  <Font name="System Italic" size="14.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></TextField>
-            <Button fx:id="fxBackButton" layoutX="26.0" layoutY="451.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="119.0" text="Tilbaka" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
+            <Button fx:id="fxBackButton" layoutX="26.0" layoutY="451.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="119.0" text="Til baka" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" />
             </children>
             <stylesheets>
                 <URL value="@flightDesign.css" />

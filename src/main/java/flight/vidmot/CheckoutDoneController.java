@@ -25,13 +25,13 @@ public class CheckoutDoneController {
 
     @FXML
     public void setBookingNumber(String bookingNumber) {
-        this.fxBookingNumber.setText("Bókunarnúmer: " + bookingNumber);
+        this.fxBookingNumber.setText(bookingNumber);
     }
 
 
     @FXML
     private void fxBackToHomeButtonHandler(ActionEvent event) {
-        ViewSwitcher.switchTo(View.MENU);
+        ViewSwitcher.switchTo(View.HOMEPAGE);
     }
     
 }
