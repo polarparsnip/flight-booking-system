@@ -23,6 +23,7 @@ public interface BookingControllerInterface {
    * @param seats The list of {@link Seat} being booked in the {@link Flight}.
    * @param bookingDate The creation date of the booking.
    * @param insured Boolean value for whether the {@link Booking} is insured.
+   * @param specialAssistance Boolean specifying whether this flight booking need special assistance
    * @return {@link Booking} object of the {@link Booking} that was just created.
    */
   public Booking createBooking(
@@ -30,7 +31,8 @@ public interface BookingControllerInterface {
     Flight flight, 
     List<Seat> seats,
     LocalDate bookingDate,
-    Boolean insured
+    Boolean insured,
+    Boolean specialAssistance
   );
 
 

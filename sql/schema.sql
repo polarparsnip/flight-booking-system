@@ -26,7 +26,8 @@ CREATE TABLE Bookings (
     bookingId VARCHAR(15),
     flightNr VARCHAR(30) REFERENCES Flights(flightNr) ON DELETE CASCADE,
     bookingDate DATE,
-    insured Boolean DEFAULT FALSE
+    insured Boolean DEFAULT FALSE,
+    specialAssistance Boolean DEFAULT FALSE
 );
 
 CREATE TABLE Seats (

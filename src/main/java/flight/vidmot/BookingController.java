@@ -38,11 +38,12 @@ public class BookingController implements BookingControllerInterface {
    * @param flight The {@link Flight} being booked.
    * @param seats The list of {@link Seat} being booked in the {@link Flight}.
    * @param insured Boolean value for whether the {@link Booking} is insured.
+   * @param specialAssistance Boolean specifying whether this flight booking need special assistance
    * @return {@link Booking} object of the {@link Booking} that was just created.
    */
-  public Booking createBooking(User purchaser, Flight flight, List<Seat> seats, LocalDate bookingDate, Boolean insured) {
+  public Booking createBooking(User purchaser, Flight flight, List<Seat> seats, LocalDate bookingDate, Boolean insured, Boolean specialAssistance) {
 
-    Booking booking = new Booking(purchaser, flight, seats, bookingDate, insured);
+    Booking booking = new Booking(purchaser, flight, seats, bookingDate, insured, specialAssistance);
 
     try {
       BSL.createBooking(booking);

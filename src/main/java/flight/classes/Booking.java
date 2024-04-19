@@ -9,27 +9,31 @@ public class Booking {
   private final Flight flight;
   private final String bookingId;
   private Boolean insured;
+  private Boolean specialAssistance;
   private LocalDate bookingDate;
   private List<Seat> seats;
 
   /**
    * Booking constructor
    * 
-   * @param purchaser  The {@link User} that booked this booking
-   * @param flight     The {@link Flight} this booking is for
-   * @param seats      The list of {@link Seat} to be reserved for  this booking
-   * @param insured    Boolean specifying whether this flight booking is insured
+   * @param purchaser The {@link User} that booked this booking
+   * @param flight The {@link Flight} this booking is for
+   * @param seats The list of {@link Seat} to be reserved for  this booking
+   * @param insured Boolean specifying whether this flight booking is insured
+   * @param specialAssistance Boolean specifying whether this flight booking need special assistance
    */
   public Booking(
       User purchaser,
       Flight flight,
       List<Seat> seats,
       LocalDate bookingDate,
-      Boolean insured) {
+      Boolean insured,
+      Boolean specialAssistance) {
 
     this.purchaser = purchaser;
     this.flight = flight;
     this.insured = insured;
+    this.specialAssistance = specialAssistance;
     this.bookingDate = bookingDate;
     this.seats = seats;
 
@@ -114,6 +118,15 @@ public class Booking {
    */
   public Boolean isInsured() {
     return insured;
+  }
+
+  /**
+   * Returns whether this booking needs special assistance
+   * 
+   * @return Boolean specifying whether this booking needs special assistance
+   */
+  public Boolean hasSpecialAssistance() {
+    return specialAssistance;
   }
 
   /**

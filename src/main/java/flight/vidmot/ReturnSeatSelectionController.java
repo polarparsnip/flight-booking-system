@@ -52,6 +52,9 @@ public class ReturnSeatSelectionController {
     private CheckBox insuranceChecked;
 
     @FXML
+    private CheckBox specialAssistanceChecked;
+
+    @FXML
     private ChoiceBox<String> fxLuggageDropBox;
 
     private Flight selectedFlight;
@@ -73,7 +76,7 @@ public class ReturnSeatSelectionController {
     private List<String> departingFlightSeats = null;
 
     private boolean departingInsured = false;
-
+    private boolean departingSpecialAssistance = false;
 
 
     
@@ -169,6 +172,11 @@ public class ReturnSeatSelectionController {
     }
 
 
+    public void setDepartingSpecialAssistance(boolean departingSpecialAssistance) {
+        this.departingSpecialAssistance = departingSpecialAssistance;
+    }
+
+
     public void resetSeats() {
         for (Node node : seatSelectionGrid.getChildren()) {
             if (node instanceof Button) {
@@ -224,6 +232,8 @@ public class ReturnSeatSelectionController {
 
         boolean insurance = insuranceChecked.isSelected();
 
+        boolean specialAssistance = specialAssistanceChecked.isSelected();
+
         if (departingFlightSeats != null && !departingFlightSeats.isEmpty() && !selectedSeats.isEmpty()) {
             ViewSwitcher.switchTo(View.CHECKOUT);
             CheckoutController cc = (CheckoutController) ViewSwitcher.lookup(View.CHECKOUT);
@@ -234,10 +244,12 @@ public class ReturnSeatSelectionController {
             cc.setDepartingFlight(departingFlight);
             cc.setDepartingSeats(departingFlightSeats);
             cc.setDepartingInsured(departingInsured);
+            cc.setDepartingSpecialAssistance(departingSpecialAssistance);
 
             cc.setReturningFlight(selectedFlight);
             cc.setReturningSeats(selectedSeats);
             cc.setReturningInsured(insurance);
+            cc.setReturningSpecialAssistance(specialAssistance);
 
             cc.setPurchaser(purchaser);
 

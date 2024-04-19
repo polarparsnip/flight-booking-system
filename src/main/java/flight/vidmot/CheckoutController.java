@@ -42,6 +42,9 @@ public class CheckoutController {
     private boolean departingInsured = false;
     private boolean returningInsured = false;
 
+    private boolean departingSpecialAssistance = false;
+    private boolean returningSpecialAssistance = false;
+
 
     private BookingServiceLayerInterface BSL = new BookingServiceLayer();
     private BookingController BC = new BookingController(BSL);
@@ -88,6 +91,15 @@ public class CheckoutController {
     }
 
 
+    public void setDepartingSpecialAssistance(boolean departingSpecialAssistance) {
+        this.departingSpecialAssistance = departingSpecialAssistance;
+    }
+
+
+    public void setReturningSpecialAssistance(boolean returningSpecialAssistance) {
+        this.returningSpecialAssistance = returningSpecialAssistance;
+    }
+
     public void setDepartingPrice(int departingFlightPrice) {
         this.departingFlightPrice = departingFlightPrice;
         fxTotalPrice.setText(Integer.toString(departingFlightPrice) + " kr");
@@ -128,7 +140,7 @@ public class CheckoutController {
             departingFlightSeats.add(s);
         }
 
-        Booking booking = BC.createBooking(purchaser, departingFlight, departingFlightSeats, bookingDate, departingInsured);
+        Booking booking = BC.createBooking(purchaser, departingFlight, departingFlightSeats, bookingDate, departingInsured, departingSpecialAssistance);
         
         Booking secondBooking = null;
         if (returningFlight != null && returningSeats != null) {
@@ -139,7 +151,7 @@ public class CheckoutController {
                 returningFlightSeats.add(s);
             }
     
-            secondBooking = BC.createBooking(purchaser, returningFlight, returningFlightSeats, bookingDate, returningInsured);
+            secondBooking = BC.createBooking(purchaser, returningFlight, returningFlightSeats, bookingDate, returningInsured, returningSpecialAssistance);
             bookingId = booking.getBookingId() + " og " + secondBooking.getBookingId();
         } else {
             bookingId = booking.getBookingId();

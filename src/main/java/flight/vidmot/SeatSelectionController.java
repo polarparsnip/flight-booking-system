@@ -52,6 +52,9 @@ public class SeatSelectionController {
     private CheckBox insuranceChecked;
 
     @FXML
+    private CheckBox specialAssistanceChecked;
+
+    @FXML
     private ChoiceBox<String> fxLuggageDropBox;
 
     private Flight selectedFlight;
@@ -225,6 +228,8 @@ public class SeatSelectionController {
 
         boolean insurance = insuranceChecked.isSelected();
 
+        boolean specialAssistance = specialAssistanceChecked.isSelected();
+
         if (returningFlight != null && returnDate != null && selectedSeats != null && !selectedSeats.isEmpty()) {
             ViewSwitcher.switchTo(View.RETURNSEATSELECTION);
             ReturnSeatSelectionController rssc = (ReturnSeatSelectionController) ViewSwitcher.lookup(View.RETURNSEATSELECTION);
@@ -248,6 +253,7 @@ public class SeatSelectionController {
             rssc.setDepartingFlight(selectedFlight);
             rssc.setDepartingFlightSeats(selectedSeats);
             rssc.setDepartingInsured(insurance);
+            rssc.setDepartingSpecialAssistance(specialAssistance);
         }
         else if (!selectedSeats.isEmpty()){
             ViewSwitcher.switchTo(View.CHECKOUT);
@@ -257,6 +263,7 @@ public class SeatSelectionController {
             cc.setDepartingFlight(selectedFlight);
             cc.setDepartingSeats(selectedSeats);
             cc.setDepartingInsured(insurance);
+            cc.setDepartingSpecialAssistance(specialAssistance);
             cc.setPurchaser(purchaser);
             cc.setDepartingPrice(numTravelers * selectedFlight.getPrice());
                

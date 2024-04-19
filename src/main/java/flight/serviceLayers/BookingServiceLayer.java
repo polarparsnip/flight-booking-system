@@ -49,11 +49,12 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
             booking.getBookingId(),
             booking.getFlight().getFlightNr(), 
             booking.getBookingDate().toString(), 
-            booking.isInsured().toString() 
+            booking.isInsured().toString() ,
+            booking.hasSpecialAssistance().toString()
         };
     
         db.query(
-            "insert into Bookings (purchaserId, bookingId, flightNr, bookingDate, insured) values (?, ?, ?, ?, ?)",
+            "insert into Bookings (purchaserId, bookingId, flightNr, bookingDate, insured, specialAssistance) values (?, ?, ?, ?, ?, ?)",
             BookingValues, 
             false
         );
@@ -103,11 +104,12 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
             booking.getFlight().getFlightNr(), 
             booking.getBookingDate().toString(), 
             booking.isInsured().toString(),
-            booking.getBookingId()
+            booking.getBookingId(),
+            booking.hasSpecialAssistance().toString()
         };
         
         db.query(
-            "UPDATE Bookings SET purchaserId = ?, flightNr = ?, bookingDate = ?, insured = ? WHERE bookingId = ?",
+            "UPDATE Bookings SET purchaserId = ?, flightNr = ?, bookingDate = ?, insured = ?, specialAssistance = ? WHERE bookingId = ?",
             bookingValues, 
             false
         );
@@ -179,7 +181,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 String[] purchaserId = { rs.getString("purchaserId") };
                 String[] bookingFlightNr = { rs.getString("flightNr") };
                 LocalDate bookingDate = rs.getObject("bookingDate", LocalDate.class);
-                Boolean insured = rs.getBoolean("insured");
+                String insured = rs.getString("insured");
+                String specialAssistance = rs.getString("specialAssistance");
 
                 ResultSet userRs = db.query("SELECT * FROM Users WHERE userId = ?", purchaserId, true);
                 String userName = userRs.getString("name");
@@ -246,7 +249,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 );
 
 
-                bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, insured));
+                bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, Boolean.parseBoolean(insured), Boolean.parseBoolean(specialAssistance)));
             } else {
                 System.err.println("No booking found with the specified ID.");
             }
@@ -299,7 +302,9 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
 
                     LocalDate bookingDate = rs.getObject("bookingDate", LocalDate.class);
 
-                    Boolean insured = rs.getBoolean("insured");
+                    String insured = rs.getString("insured");
+                    String specialAssistance = rs.getString("specialAssistance");
+
 
                     String[] bookingIdValue = { bookingId };
                     ResultSet SeatsRs = db.query(
@@ -362,7 +367,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                     );
 
 
-                    bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, insured));
+                    bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, Boolean.parseBoolean(insured), Boolean.parseBoolean(specialAssistance)));
 
                 }      
 
@@ -403,7 +408,8 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 String bookingId = rs.getString("bookingId");
                 String[] bookingFlightNr = { rs.getString("flightNr") };
                 LocalDate bookingDate = rs.getObject("bookingDate", LocalDate.class);
-                Boolean insured = rs.getBoolean("insured");
+                String insured = rs.getString("insured");
+                String specialAssistance = rs.getString("specialAssistance");
 
                 ResultSet userRs = db.query("SELECT * FROM Users WHERE userId = ?", purchaserId, true);
                 String userName = userRs.getString("name");
@@ -470,7 +476,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 );
 
 
-                bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, insured));
+                bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, Boolean.parseBoolean(insured), Boolean.parseBoolean(specialAssistance)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
