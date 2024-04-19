@@ -13,11 +13,11 @@ public class CheckoutDoneController {
     @FXML
     private TextField fxBookingNumber;
 
-    private User purchaser;
+    // private User purchaser;
 
 
     public void setPurchaser(User purchaser) {
-        this.purchaser = purchaser;
+        // this.purchaser = purchaser;
 
         fxLoggedIn.setText("Skráður inn sem: " + purchaser.getName());
     }

@@ -1,15 +1,11 @@
 package flight.serviceLayers;
 
-import java.lang.reflect.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 import flight.classes.Booking;
 import flight.classes.User;
@@ -252,7 +248,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
 
                 bookings.add(new Booking(user, tempFlight, bookedSeats, bookingDate, insured));
             } else {
-                System.out.println("No booking found with the specified ID.");
+                System.err.println("No booking found with the specified ID.");
             }
 
         } catch (SQLException e) {
@@ -293,7 +289,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 ResultSet rs = db.query("SELECT * FROM Bookings WHERE purchaserId = ?", userId, true);
 
                 while (rs.next()) {
-                    String[] purchaserId = { rs.getString("purchaserId") };
+                    // String[] purchaserId = { rs.getString("purchaserId") };
                     String bookingId = rs.getString("bookingId");
                     String[] bookingFlightNr = { rs.getString("flightNr") };
 
@@ -371,7 +367,7 @@ public class BookingServiceLayer implements BookingServiceLayerInterface {
                 }      
 
             } else {
-                System.out.println("No user found with the specified ID.");
+                System.err.println("No user found with the specified ID.");
             }
 
         } catch (SQLException e) {

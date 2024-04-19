@@ -31,11 +31,11 @@
                             <center>
                                 <AnchorPane prefHeight="392.0" prefWidth="339.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <Pane layoutX="-68.0" layoutY="25.0" prefHeight="205.0" prefWidth="380.0" styleClass="ft-card" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="-68.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="25.0">
+                                        <Pane layoutX="-68.0" layoutY="17.0" prefHeight="213.0" prefWidth="368.0" styleClass="ft-card" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="-68.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="25.0">
                                             <children>
-                                                <TextField fx:id="fxDepartureHourField" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
-                                                <TextField fx:id="fxArrivalHourField" blendMode="COLOR_BURN" editable="false" layoutX="253.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
-                                                <Line endX="54.0" layoutX="174.0" layoutY="38.0" startX="-21.0" />
+                                                <TextField fx:id="fxDepartureHourField" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="33.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <TextField fx:id="fxArrivalHourField" blendMode="COLOR_BURN" editable="false" layoutX="253.0" layoutY="34.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <Line endX="54.0" layoutX="165.0" layoutY="34.0" startX="-21.0" />
                                                 <ChoiceBox fx:id="fxLuggageDropBox" accessibleRole="CHECK_MENU_ITEM" accessibleText="Luggage " blendMode="MULTIPLY" layoutX="14.0" layoutY="78.0" prefWidth="150.0" />
                                     <CheckBox fx:id="insuranceChecked" layoutX="253.0" layoutY="116.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ferðatrygging" />
                                     <CheckBox fx:id="specialAssistanceChecked" layoutX="253.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Auka aðstoð" />
@@ -44,12 +44,19 @@
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </TextField>
+                                    <TextField fx:id="fxDepartureHourFieldLabel" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="9.0" prefHeight="25.0" prefWidth="100.0" text="Brottför" />
+                                    <TextField fx:id="fxArrivalHourField1" blendMode="COLOR_BURN" editable="false" layoutX="253.0" layoutY="9.0" prefHeight="25.0" prefWidth="100.0" text="Koma" />
                                             </children>
                                             <stylesheets>
                                                 <URL value="@flightDesign.css" />
                                                 <URL value="@bookingDesign.css" />
                                             </stylesheets>
                                         </Pane>
+                              <TextField alignment="CENTER" blendMode="OVERLAY" editable="false" layoutX="-3.0" layoutY="246.0" prefHeight="40.0" prefWidth="238.0" text="Veldu sæti fyrir flug">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </TextField>
                                     </children>
                                 </AnchorPane>
                             </center>
@@ -113,8 +120,8 @@
                                         <TextField fx:id="fxDeparture" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Source" text="Brottfarastaður" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
                                         <TextField fx:id="fxDestination" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Desstination" text="Áfangastaður" AnchorPane.topAnchor="60.0" />
                                         <TextField fx:id="fxNumTraveler" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="88.0" promptText="Travelers" />
-                                        <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Depart Date" text="Brottför Dagsetning" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="100.0" />
-                                        <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival Date" text="Koma Dagsetning" AnchorPane.topAnchor="100.0" />
+                                        <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Depart Date" text="Dagsetning" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="100.0" />
+                                        <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival Date" text="Dagsetning" AnchorPane.topAnchor="100.0" />
                               <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
                                  <font>
                                     <Font name="System Bold" size="15.0" />

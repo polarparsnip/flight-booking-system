@@ -20,10 +20,12 @@ public class ViewSwitcher {
     private static final Map<View, Object> controllers = new HashMap<>();
     private static Scene scene;
 
+    @SuppressWarnings("exports")
     public static void setScene(Scene scene) {
         ViewSwitcher.scene = scene;
     }
 
+    @SuppressWarnings("exports")
     public static Scene getScene() {
         return scene;
     }
@@ -45,7 +47,7 @@ public class ViewSwitcher {
                 loader = new FXMLLoader(ViewSwitcher.class.getResource(view.getFileName()));
                 root = loader.load();
 
-                // if (view != View.LEVELS) {
+                // if (view != View.MENU) {
                 //     cache.put(view, root);
                 // }
 

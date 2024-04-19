@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.ReturnSeatSelectionController">
+<AnchorPane maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="flight.vidmot.ReturnSeatSelectionController">
     <children>
         <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="500.0" maxWidth="650.0" minHeight="500.0" minWidth="650.0" prefHeight="500.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -28,30 +28,62 @@
                             <left>
                                 <VBox prefHeight="392.0" prefWidth="102.0" BorderPane.alignment="CENTER" />
                             </left>
+                            <center>
+                                <AnchorPane prefHeight="392.0" prefWidth="339.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Pane layoutX="-68.0" layoutY="17.0" prefHeight="213.0" prefWidth="368.0" styleClass="ft-card" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="-68.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="25.0">
+                                            <children>
+                                                <TextField fx:id="fxDepartureHourField" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="33.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <TextField fx:id="fxArrivalHourField" blendMode="COLOR_BURN" editable="false" layoutX="253.0" layoutY="34.0" prefHeight="25.0" prefWidth="100.0" />
+                                                <Line endX="54.0" layoutX="165.0" layoutY="34.0" startX="-21.0" />
+                                                <ChoiceBox fx:id="fxLuggageDropBox" accessibleRole="CHECK_MENU_ITEM" accessibleText="Luggage " blendMode="MULTIPLY" layoutX="14.0" layoutY="78.0" prefWidth="150.0" />
+                                    <CheckBox fx:id="insuranceChecked" layoutX="253.0" layoutY="116.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ferðatrygging" />
+                                    <CheckBox fx:id="specialAssistanceChecked" layoutX="253.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Auka aðstoð" />
+                                    <TextField fx:id="fxTotalCost" alignment="CENTER" blendMode="MULTIPLY" editable="false" layoutX="98.0" layoutY="160.0" promptText="Total Cost" text="Heildarkostnaður">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="fxDepartureHourFieldLabel" blendMode="COLOR_BURN" editable="false" layoutX="14.0" layoutY="9.0" prefHeight="25.0" prefWidth="100.0" text="Brottför" />
+                                    <TextField fx:id="fxArrivalHourField1" blendMode="COLOR_BURN" editable="false" layoutX="253.0" layoutY="9.0" prefHeight="25.0" prefWidth="100.0" text="Koma" />
+                                            </children>
+                                            <stylesheets>
+                                                <URL value="@flightDesign.css" />
+                                                <URL value="@bookingDesign.css" />
+                                            </stylesheets>
+                                        </Pane>
+                              <TextField alignment="CENTER" blendMode="OVERLAY" editable="false" layoutX="-3.0" layoutY="246.0" prefHeight="40.0" prefWidth="238.0" text="Veldu sæti fyrir seinna flug">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </TextField>
+                                    </children>
+                                </AnchorPane>
+                            </center>
                             <right>
                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <ImageView fitHeight="450.0" fitWidth="200.0" layoutX="-13.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.399999999999977" AnchorPane.rightAnchor="24.346160888671875" AnchorPane.topAnchor="-29.0">
+                              <ImageView fitHeight="450.0" fitWidth="200.0" layoutY="-60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="24.0">
                                  <image>
                                     <Image url="@picture/seaSelectiom.png" />
                                  </image>
                               </ImageView>
-                              <GridPane fx:id="seatSelectionGrid" blendMode="MULTIPLY" layoutX="48.0" layoutY="102.0" prefHeight="241.0" prefWidth="106.0">
+                              <GridPane fx:id="seatSelectionGrid" blendMode="MULTIPLY" layoutX="48.0" layoutY="75.0" prefHeight="236.0" prefWidth="102.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="8.80001220703125" prefWidth="19.80001220703125" />
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="9.400048828124993" prefWidth="19.8000244140625" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="1.5999023437500028" prefWidth="18.39998779296875" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="10.0" prefWidth="20.80001220703125" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="10.0" prefWidth="32.7999755859375" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="1.5999023437500028" prefWidth="16.200048828125" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="10.0" prefWidth="20.999951171875004" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.80005073547363" minWidth="10.0" prefWidth="29.99995880126953" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                    <RowConstraints maxHeight="63.19998779296875" minHeight="10.0" prefHeight="32.799993896484374" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="86.40001220703125" minHeight="10.0" prefHeight="34.39998779296876" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="74.60000000000001" minHeight="10.0" prefHeight="36.00001220703123" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="34.666656494140625" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="57.600012207031256" minHeight="10.0" prefHeight="32.66667683919272" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="52.400000000000006" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="33.999975585937506" minHeight="10.0" prefHeight="31.999975585937506" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="63.19998779296875" minHeight="10.0" prefHeight="22.999979654947918" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="86.40001220703125" minHeight="10.0" prefHeight="48.00002034505208" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="74.60000000000001" minHeight="10.0" prefHeight="21.66666666666667" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="49.66666666666667" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="57.600012207031256" minHeight="10.0" prefHeight="20.666666666666657" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="60.66664632161459" minHeight="10.0" prefHeight="48.33332316080728" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="32.33333333333334" minHeight="10.0" prefHeight="25.666676839192718" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
                                     <Button id="1A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="1" />
@@ -65,7 +97,7 @@
                                     <Button id="3A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="3" />
                                     <Button id="3B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Button id="3C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                    <Button id="3D" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <Button id="3D" maxHeight="18.0" maxWidth="19.0" minHeight="17.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" prefWidth="19.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                                     <Button id="4A" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.rowIndex="4" />
                                     <Button id="4B" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <Button id="4C" maxHeight="18.0" maxWidth="19.0" minHeight="18.0" minWidth="19.0" mnemonicParsing="false" onAction="#fxToggleSeat" GridPane.columnIndex="3" GridPane.rowIndex="4" />
@@ -83,58 +115,28 @@
                            </children></AnchorPane>
                             </right>
                             <top>
-                                <AnchorPane maxWidth="650.0" minWidth="650.0" prefHeight="144.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+                                <AnchorPane prefHeight="144.0" prefWidth="715.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <TextField fx:id="fxDeparture" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="90.0" prefHeight="25.0" prefWidth="160.0" promptText="Source" text="Brottfarastaður" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="87.0" />
-                                        <TextField fx:id="fxDestination" blendMode="COLOR_BURN" editable="false" layoutX="250.0" layoutY="90.0" prefHeight="25.0" prefWidth="160.0" promptText="Desstination" text="Áfangastaður" AnchorPane.topAnchor="87.0" />
-                                        <TextField fx:id="fxNumTraveler" blendMode="DARKEN" editable="false" layoutX="-15.0" layoutY="100.0" promptText="Travelers" />
-                                        <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="125.0" prefHeight="26.0" prefWidth="160.0" promptText="Depart Date" text="Brottför Dagsetning" />
-                              <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="25.0" layoutY="44.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="44.0">
+                                        <TextField fx:id="fxDeparture" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Source" text="Brottfarastaður" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
+                                        <TextField fx:id="fxDestination" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="60.0" prefHeight="25.0" prefWidth="160.0" promptText="Desstination" text="Áfangastaður" AnchorPane.topAnchor="60.0" />
+                                        <TextField fx:id="fxNumTraveler" blendMode="DARKEN" editable="false" layoutX="14.0" layoutY="88.0" promptText="Travelers" />
+                                        <TextField fx:id="fxDepartureDate" blendMode="COLOR_BURN" editable="false" layoutX="25.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Depart Date" text="Dagsetning" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="100.0" />
+                                        <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="242.0" layoutY="100.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival Date" text="Dagsetning" AnchorPane.topAnchor="100.0" />
+                              <TextField fx:id="fxLoggedIn" blendMode="DARKEN" editable="false" layoutX="435.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font></TextField>
-                              <TextField alignment="CENTER" blendMode="OVERLAY" editable="false" layoutX="86.0" layoutY="4.0" prefHeight="40.0" prefWidth="238.0" text="Book Your Return flight ">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                              </TextField>
                                     </children>
                                 </AnchorPane>
                             </top>
                      <bottom>
-                        <Pane prefHeight="100.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                        <Pane prefHeight="76.0" prefWidth="753.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="fxBackButton" layoutX="25.0" layoutY="45.0" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Til baka" />
-                              <Button fx:id="confirmButton" layoutX="295.0" layoutY="45.0" mnemonicParsing="false" onAction="#fxConfirmSeatSelectionButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Staðfesta" />
+                              <Button fx:id="confirmButton" layoutX="307.0" layoutY="26.0" mnemonicParsing="false" onAction="#fxConfirmSeatSelectionButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Staðfesta" />
+                              <Button fx:id="fxBackButton" layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#fxBackButtonHandler" prefHeight="25.0" prefWidth="100.0" text="Til baka" />
                            </children>
                         </Pane>
                      </bottom>
-                     <center>
-                                <AnchorPane maxHeight="300.0" maxWidth="414.0" minHeight="300.0" minWidth="350.0" prefHeight="300.0" prefWidth="415.0" BorderPane.alignment="CENTER">
-                                    <children>
-                                        <Pane layoutX="-80.0" layoutY="71.0" prefHeight="204.0" prefWidth="380.0" styleClass="ft-card" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="-80.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="71.0">
-                                            <children>
-                                                <TextField fx:id="fxDepartureHourField" blendMode="COLOR_BURN" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" />
-                                                <TextField fx:id="fxArrivalHourField" blendMode="COLOR_BURN" layoutX="259.0" layoutY="26.0" prefHeight="25.0" prefWidth="100.0" />
-                                                <Line endX="54.0" layoutX="172.0" layoutY="38.0" startX="-21.0" />
-                                                <ChoiceBox fx:id="fxLuggageDropBox" accessibleRole="CHECK_MENU_ITEM" accessibleText="Luggage " blendMode="MULTIPLY" layoutX="14.0" layoutY="81.0" prefHeight="25.0" prefWidth="162.0" />
-                                    <CheckBox fx:id="insuranceChecked" layoutX="260.0" layoutY="85.0" mnemonicParsing="false" text="Ferðatrygging" />
-                                    <CheckBox fx:id="specialAssistanceChecked" layoutX="259.0" layoutY="121.0" mnemonicParsing="false" text="Auka aðstoð" />
-                                    <TextField fx:id="fxTotalCost" alignment="CENTER" blendMode="MULTIPLY" editable="false" layoutX="91.0" layoutY="159.0" prefHeight="25.0" promptText="Total Cost" text="Heildarkostnaður">
-                                       <font>
-                                          <Font name="System Bold" size="15.0" />
-                                       </font>
-                                    </TextField>
-                                            </children>
-                                            <stylesheets>
-                                                <URL value="@flightDesign.css" />
-                                                <URL value="@bookingDesign.css" />
-                                            </stylesheets>
-                                        </Pane>
-                                        <TextField fx:id="fxArrivalDate" blendMode="COLOR_BURN" editable="false" layoutX="157.0" prefHeight="25.0" prefWidth="160.0" promptText="Arrival Date" text="Koma Dagsetning" />
-                                    </children>
-                                </AnchorPane>
-                     </center>
                         </BorderPane>
                     </children>
                     <styleClass>

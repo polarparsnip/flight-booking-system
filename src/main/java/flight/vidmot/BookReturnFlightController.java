@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class BookReturnFlightController {
 
@@ -46,8 +45,6 @@ public class BookReturnFlightController {
     @FXML
     private TextField fxArrivalHourField;
 
-    private List<Flight> selectedFlights = null;
-
     // private List<Flight> returningFlights = null;
 
     private User purchaser;
@@ -60,7 +57,7 @@ public class BookReturnFlightController {
 
     private LocalDate departureDate;
 
-    private LocalDate arrivalDate;
+    // private LocalDate arrivalDate;
 
     private ObservableList<Flight> flightList;
 
@@ -104,13 +101,13 @@ public class BookReturnFlightController {
 
     public void setDepartureDate(LocalDate departureDate) {
         this.departureDate = departureDate;
-        this.fxDepartureDate.setText("Brottfaratími: " + departureDate.toString());
+        this.fxDepartureDate.setText("Dagsetning: " + departureDate.toString());
     }
 
 
     public void setArrivalDate(LocalDate arrivalDate) {
-        this.arrivalDate = arrivalDate;
-        this.fxArrivalDate.setText("Komutími: " + arrivalDate.toString());
+        // this.arrivalDate = arrivalDate;
+        this.fxArrivalDate.setText("Dagsetning: " + arrivalDate.toString());
     }
 
 
@@ -128,8 +125,6 @@ public class BookReturnFlightController {
 
     
     public void setSelectedFlights(List<Flight> selectedFlights) {
-        this.selectedFlights = selectedFlights;
-
         flightList = FXCollections.observableArrayList(selectedFlights);
         fxFlightList.setItems(flightList);
 
@@ -162,11 +157,12 @@ public class BookReturnFlightController {
 
     @FXML
     private void fxBookButtonHandler(ActionEvent event) {
-        System.out.println("Book");
 
         if (selectedFlight != null && selectedDepartureFlight != null) {
             ViewSwitcher.switchTo(View.SEATSELECTION);
             SeatSelectionController ssc = (SeatSelectionController) ViewSwitcher.lookup(View.SEATSELECTION);
+            
+
             ssc.setPurchaser(purchaser);
             ssc.setNumTravelers(numTravelers);
 
@@ -183,10 +179,6 @@ public class BookReturnFlightController {
             ssc.setReturningFlight(selectedFlight);
             ssc.setReturnDate(departureDate);
             
-            ssc.resetSeats();
-            
-        } else {
-            System.out.println("Fix");    
         }
 
     }

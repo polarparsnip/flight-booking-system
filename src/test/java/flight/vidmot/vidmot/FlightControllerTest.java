@@ -14,7 +14,6 @@ import org.junit.Test;
 import flight.classes.Flight;
 import flight.classes.Seat;
 import flight.interfaces.FlightServiceLayerInterface;
-import flight.serviceLayers.FlightServiceLayer;
 import flight.vidmot.FlightController;
 import flight.vidmot.mocks.FlightServiceLayerMock;
 

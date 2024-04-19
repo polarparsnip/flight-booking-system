@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class BookFlightController {
 
@@ -45,6 +44,7 @@ public class BookFlightController {
     @FXML
     private TextField fxArrivalHourField;
 
+    @SuppressWarnings("unused")
     private List<Flight> selectedFlights = null;
 
     private List<Flight> returningFlights = null;
@@ -97,13 +97,13 @@ public class BookFlightController {
 
     public void setDepartureDate(LocalDate departureDate) {
         this.departureDate = departureDate;
-        this.fxDepartureDate.setText("Brottfaratími: " + departureDate.toString());
+        this.fxDepartureDate.setText("Dagsetning: " + departureDate.toString());
     }
 
 
     public void setArrivalDate(LocalDate arrivalDate) {
         this.arrivalDate = arrivalDate;
-        this.fxArrivalDate.setText("Komutími: " + arrivalDate.toString());
+        this.fxArrivalDate.setText("Dagsetning: " + arrivalDate.toString());
     }
 
 
@@ -142,7 +142,6 @@ public class BookFlightController {
 
     @FXML
     private void fxBookButtonHandler(ActionEvent event) {
-        System.out.println("Book");
 
         if (selectedFlight != null && returningFlights != null && returnDate != null) {
 
@@ -168,6 +167,7 @@ public class BookFlightController {
         } else if (selectedFlight != null) {
             ViewSwitcher.switchTo(View.SEATSELECTION);
             SeatSelectionController ssc = (SeatSelectionController) ViewSwitcher.lookup(View.SEATSELECTION);
+            
             ssc.setPurchaser(purchaser);
             ssc.setNumTravelers(numTravelers);
 
@@ -179,26 +179,8 @@ public class BookFlightController {
             ssc.setArrivalTime(selectedFlight.getArrivalTime());
 
             ssc.setSelectedFlight(selectedFlight);
-
-            ssc.resetSeats();
             
-        } else {
-            System.out.println("Fix");    
         }
 
-
-
-
     }
-
-
-    public void initialize() {
-
-        // fxFlightList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-        //     activeIndex = fxFlightList.getSelectionModel().getSelectedIndex();
-        //     System.out.println(fxFlightList.getSelectionModel().getSelectedItem());
-        // });
-
-    }
-    
 }

@@ -81,22 +81,12 @@ public class SelectFlightController {
         } else if (fxDepartPlace.getValue() == fxDestinationPlace.getValue()) {
             fxError.setText("Brottfarastaður og áfangastaður mega ekki vera þeir sömu");
         } else {
-            System.out.println("Departure Place: " + fxDepartPlace.getValue());
-            System.out.println("Destination Place: " + fxDestinationPlace.getValue());
-            System.out.println("Departure Date: " + fxDepartDate.getValue().toString());
-
-            if (fxReturnDate.getValue() != null) {
-                LocalDate returnDate = fxReturnDate.getValue();
-                System.out.println("Return Date: " + returnDate.toString());
-            }
-            System.out.println("Amount: " + fxTravelerCount.getValue());
 
             List<Flight> resultingDepartingFlights = FC.searchFlightsByDepArr(fxDepartPlace.getValue(), fxDestinationPlace.getValue(), fxDepartDate.getValue());
             
             List<Flight> filteredDepartingFlights = resultingDepartingFlights
             .stream().filter(flight -> fxTravelerCount.getValue() <= flight.getSeatsAvailable())
             .collect(Collectors.toList());
-            
 
             List<Flight> filteredReturningFlights = null;
 

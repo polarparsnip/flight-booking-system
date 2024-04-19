@@ -37,7 +37,7 @@ public class CheckoutController {
 
     private List<String> returningSeats = null;
 
-    private int returningFlightPrice;
+    // private int returningFlightPrice;
 
     private boolean departingInsured = false;
     private boolean returningInsured = false;
@@ -79,12 +79,12 @@ public class CheckoutController {
 
 
     public void setDepartingInsured(boolean insured) {
-        this.departingInsured = departingInsured;
+        this.departingInsured = insured;
     }
 
 
     public void setReturningInsured(boolean insured) {
-        this.returningInsured = returningInsured;
+        this.returningInsured = insured;
     }
 
 
@@ -95,17 +95,21 @@ public class CheckoutController {
 
 
     public void setReturningPrice(int returningFlightPrice) {
-        this.returningFlightPrice = returningFlightPrice;
+        // this.returningFlightPrice = returningFlightPrice;
         fxTotalPrice.setText(Integer.toString(departingFlightPrice + returningFlightPrice) + " kr");
     }
 
     @FXML
     private void fxBackButtonHandler(ActionEvent event) {
         if (ViewSwitcher.lookup(View.RETURNSEATSELECTION) != null) {
-            ViewSwitcher.switchTo(View.RETURNSEATSELECTION);            
+            ViewSwitcher.switchTo(View.RETURNSEATSELECTION);       
+            ReturnSeatSelectionController rssc = (ReturnSeatSelectionController) ViewSwitcher.lookup(View.RETURNSEATSELECTION);
+            rssc.resetSeats();     
 
         } else {
-            ViewSwitcher.switchTo(View.SEATSELECTION);            
+            ViewSwitcher.switchTo(View.SEATSELECTION);
+            SeatSelectionController ssc = (SeatSelectionController) ViewSwitcher.lookup(View.SEATSELECTION);
+            ssc.resetSeats();      
         }
 
     }
@@ -113,16 +117,6 @@ public class CheckoutController {
 
     @FXML
     private void fxCreateBookingButton(ActionEvent event) {
-        System.out.println("User: " + purchaser);
-        System.out.println("Number of Travelers: " + numTravelers);
-        System.out.println("Departing Flight: " + departingFlight.toString());
-        System.out.println("Departing Seats: " + departingSeats);
-        if (returningFlight != null && returningSeats != null) {
-            System.out.println("Returning Flight: " + returningFlight.toString());
-            System.out.println("Returning Seats: " + returningSeats);            
-        }
-
-        // System.out.println("Insured: " + insured);
 
         String bookingId = "";
 
@@ -136,8 +130,6 @@ public class CheckoutController {
 
         Booking booking = BC.createBooking(purchaser, departingFlight, departingFlightSeats, bookingDate, departingInsured);
         
-        System.out.println(booking.getBookingId());
-
         Booking secondBooking = null;
         if (returningFlight != null && returningSeats != null) {
 

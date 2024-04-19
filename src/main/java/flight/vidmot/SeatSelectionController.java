@@ -64,13 +64,7 @@ public class SeatSelectionController {
 
     private String destinationLocation;
 
-    private LocalDate departureDate;
-
-    private LocalDate arrivalDate;
-
-    private LocalTime departureTime;
-
-    private LocalTime arrivalTime;
+    // private LocalDate departureDate;
 
     private List<String> selectedSeats = new ArrayList<>();
 
@@ -82,7 +76,7 @@ public class SeatSelectionController {
 
     private LocalDate returnDate = null;
 
-    // private List<String> departingFlightSeats = null;
+    private List<String> departingFlightSeats = null;
 
 
 
@@ -111,25 +105,22 @@ public class SeatSelectionController {
 
 
     public void setDepartureDate(LocalDate departureDate) {
-        this.departureDate = departureDate;
-        this.fxDepartureDate.setText("Brottfaratími: " + departureDate.toString());
+        // this.departureDate = departureDate;
+        this.fxDepartureDate.setText("Dagsetning: " + departureDate.toString());
     }
 
 
     public void setArrivalDate(LocalDate arrivalDate) {
-        this.arrivalDate = arrivalDate;
-        this.fxArrivalDate.setText("Komutími: " + arrivalDate.toString());
+        this.fxArrivalDate.setText("Dagsetning: " + arrivalDate.toString());
     }
 
 
     public void setDepartureTime(LocalTime departureTime) {
-        this.departureTime = departureTime;
         this.fxDepartureHourField.setText(departureTime.toString());
     }
 
 
     public void setArrivalTime(LocalTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
         this.fxArrivalHourField.setText(arrivalTime.toString());
     }
 
@@ -140,14 +131,30 @@ public class SeatSelectionController {
    
     
     public void resetSeats() {
+        for (Node node : seatSelectionGrid.getChildren()) {
+            if (node instanceof Button) {
+                Button button = (Button) node;
+                String buttonId = button.getId();
+
+                if (buttonId != null) {
+                    if (selectedSeats.contains(buttonId)) {
+                        selectedSeats.remove(buttonId);
+                    }
+                    
+                    button.setStyle(null);
+                }
+
+            }
+        }
+
         this.selectedSeats.clear();
+
+        fxTotalCost.setText(Integer.toString(selectedFlight.getPrice() * selectedSeats.size()) + " kr");
     }
 
 
     public void setSelectedFlight(Flight selectedFlight) {
         this.selectedFlight = selectedFlight;
-
-        System.out.println(selectedFlight.getFlightNr());
 
         List<Seat> seats = selectedFlight.getSeats();
         seatsReservationStatus = new HashMap<>();
@@ -155,7 +162,6 @@ public class SeatSelectionController {
         for (int i = 0; i < seats.size();i++) {
             String seatNr = seats.get(i).getSeatNr();
             boolean isReserved = seats.get(i).getReservationStatus();
-            // System.out.println(seats.get(i).getSeatNr() + " - " + seats.get(i).getReservationStatus());
             seatsReservationStatus.put(seatNr, isReserved);
         }
 
@@ -163,10 +169,8 @@ public class SeatSelectionController {
             if (node instanceof Button) {
                 Button button = (Button) node;
                 String buttonId = button.getId();
-                System.out.println(buttonId + " - " + seatsReservationStatus.get(buttonId));
 
                 if (buttonId != null && seatsReservationStatus.containsKey(buttonId) && seatsReservationStatus.get(buttonId)) {
-                    System.out.println(buttonId);
                     button.setOpacity(1.0); 
                     button.setStyle("-fx-background-color: red;");
                     button.setDisable(true);
@@ -185,14 +189,15 @@ public class SeatSelectionController {
     }
 
 
-    // public void setDepartingFlightSeats(List<String> departingFlightSeats) {
-    //     this.departingFlightSeats = departingFlightSeats;
-    // }
+    public void setDepartingFlightSeats(List<String> departingFlightSeats) {
+        this.departingFlightSeats = departingFlightSeats;
+    }
 
 
     @FXML
-    public void fxBackButtonHandler(ActionEvent event) {
+    private void fxBackButtonHandler(ActionEvent event) {
         ViewSwitcher.switchTo(View.BOOKFLIGHT);
+        resetSeats();
     }
 
 
@@ -212,21 +217,19 @@ public class SeatSelectionController {
             fxTotalCost.setText(Integer.toString(selectedFlight.getPrice() * selectedSeats.size()) + " kr");
         }
 
-        System.out.println(selectedSeats);
     }
 
 
     @FXML
     private void fxConfirmSeatSelectionButtonHandler(ActionEvent event) {
-        System.out.println("Seats selected");
 
         boolean insurance = insuranceChecked.isSelected();
-
-        System.out.println(insurance);
 
         if (returningFlight != null && returnDate != null && selectedSeats != null && !selectedSeats.isEmpty()) {
             ViewSwitcher.switchTo(View.RETURNSEATSELECTION);
             ReturnSeatSelectionController rssc = (ReturnSeatSelectionController) ViewSwitcher.lookup(View.RETURNSEATSELECTION);
+            
+
             rssc.setPurchaser(purchaser);
             rssc.setNumTravelers(numTravelers);
 
@@ -241,7 +244,7 @@ public class SeatSelectionController {
 
             rssc.setSelectedFlight(returningFlight);
 
-            rssc.setOriginalDepartureDate(departureDate);
+            // rssc.setOriginalDepartureDate(departureDate);
             rssc.setDepartingFlight(selectedFlight);
             rssc.setDepartingFlightSeats(selectedSeats);
             rssc.setDepartingInsured(insurance);
@@ -257,9 +260,9 @@ public class SeatSelectionController {
             cc.setPurchaser(purchaser);
             cc.setDepartingPrice(numTravelers * selectedFlight.getPrice());
                
-        } else {
-            System.out.println("PLease select seats before continuing");    
         }
+
+        
 
     }
     

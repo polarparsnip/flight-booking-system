@@ -2,8 +2,8 @@ package flight.vidmot.vidmot;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+// import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,7 +31,7 @@ public class BookingControllerFailTest {
   private final String[] seatNumbers = {"A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"};
 
   private User testPassenger;
-  private User testPassenger2;
+  // private User testPassenger2;
   private Flight testFlight;
   private Booking oracleBooking;
   private LocalDate currentDate = LocalDate.now();
@@ -47,10 +47,10 @@ public class BookingControllerFailTest {
       "Tryggvi Hjálmarsson"
     );
 
-    testPassenger2 = new User(
-      "KT-0304050607", 
-      "Klara Tryggvadóttir"
-    );
+    // testPassenger2 = new User(
+    //   "KT-0304050607", 
+    //   "Klara Tryggvadóttir"
+    // );
 
     ArrayList<Seat> seats = new ArrayList<>();
     for (String seatNum : seatNumbers) {

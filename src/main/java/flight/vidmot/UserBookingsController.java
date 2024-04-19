@@ -1,10 +1,8 @@
 package flight.vidmot;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import flight.classes.Booking;
-import flight.classes.Flight;
 import flight.classes.User;
 import flight.interfaces.BookingServiceLayerInterface;
 import flight.serviceLayers.BookingServiceLayer;
@@ -14,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class UserBookingsController {
 
@@ -100,19 +97,7 @@ public class UserBookingsController {
             }
         });
     }
-
-
-    @FXML
-    private void fxDeleteBookingButtonHandler(ActionEvent event) {
-        BC.deleteBooking(selectedBooking);
-
-        bookingList.clear();
-        this.userBookings = BC.getBookingsByUserId(purchaser.getId());
-        bookingList.addAll(userBookings);
-        fxBookingList.setItems(bookingList);
-        System.out.println("Delete");
-    }
-
+    
 
     @FXML
     private void fxBackButtonHandler(ActionEvent event) {

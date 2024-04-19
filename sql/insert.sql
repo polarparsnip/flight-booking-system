@@ -1,8 +1,4 @@
-INSERT INTO Users (
-  userId,
-  name
-) VALUES 
-    ('tb', 'Tryggvi Hjálmarsson');
+
 
 INSERT INTO Flights (
     flightNr,
@@ -186,27 +182,12 @@ INSERT INTO Flights (
 
 
 
-INSERT INTO Bookings (
-    bookingId,
-    flightNr,
-    purchaserId,
-    bookingDate
-) VALUES 
-    ('BKNGF-001-TH-0203040506-2024-04-5', 'F-001', 'TH-0203040506', '2024-04-5');
-
-INSERT INTO BookedSeats (
-    bookingFlightNr,
-    bookedSeatNumber,
-    bookingId
-) VALUES 
-    ('F-001', 'A1', 'BKNGF-001-TH-0203040506-2024-04-5');
-
 INSERT INTO Seats (
     flightNr,
     seatNumber,
     reserved
 ) VALUES 
-  ('F-001', '1A', 'TRUE'),
+  ('F-001', '1A', 'FALSE'),
 ('F-001', '1B', 'FALSE'),
 ('F-001', '1C', 'FALSE'),
 ('F-001', '1D', 'FALSE'),
